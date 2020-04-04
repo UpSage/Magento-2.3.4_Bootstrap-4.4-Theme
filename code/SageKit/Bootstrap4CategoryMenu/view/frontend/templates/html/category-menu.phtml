@@ -1,0 +1,57 @@
+<?php
+
+ $categories = $block->getStoreCategories(true,false,true);
+ $categoryHelper = $block->getCategoryHelper();
+ 
+?>
+
+<ul class="navbar-nav">
+
+ <?php
+  $i = 1;
+  foreach($categories as $category) :
+
+   $categoriesChildren = $block->getChildCategories($category);
+   $class;
+
+   if(sizeof($categoriesChildren) > 0) {
+    $class = 'dropdown';
+   } else {
+    $class = '';
+   }
+ ?>
+
+ <li class="nav-item <?= $class ?>">
+
+  <?php if(sizeof($categoriesChildren) > 0) : ?>
+
+  <a class="nav-link <?= $class ?>-toggle" href="<?= $categoryHelper->getCategoryUrl($category) ?>" id="<?= $class . $i?>" data-toggle="<?= $class ?>" aria-haspopup="true" aria-expanded="false"><?= $category->getName() ?></a>
+
+  <div class="<?= $class ?>-menu" aria-labelledby="<?= $class . $i?>">
+
+   <?php
+    $j = 1;
+    foreach($categoriesChildren as $categoryChildren) :
+   ?>
+   <a class="<?= $class ?>-item" href="<?= $categoryHelper->getCategoryUrl($categoryChildren) ?>"><?= $categoryChildren->getName() ?></a>
+   <?php
+    $j++;
+    endforeach;
+   ?>
+
+  </div>
+
+  <?php else : ?>
+
+  <a class="nav-link" href="<?= $categoryHelper->getCategoryUrl($category) ?>"><?= $category->getName() ?></a>
+
+  <?php endif; ?>
+
+ </li>
+
+ <?php
+  $i++;
+  endforeach;
+ ?>
+
+</ul>

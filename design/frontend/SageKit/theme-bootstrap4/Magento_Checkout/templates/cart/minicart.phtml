@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Checkout\Block\Cart\Sidebar */
+?>
+
+<div data-block="minicart" class="minicart-wrapper ml-auto mr-2 mr-md-0">
+
+ <a
+  class="action showcart btn px-2 py-1"
+  href="<?= $block->escapeUrl($block->getShoppingCartUrl()) ?>"
+  role="button"
+  data-bind="scope: 'minicart_content'"
+  data-toggle="modal"
+  data-target="#staticBackdrop"
+  >
+  <span class="text"><?= $block->escapeHtml(__('My Cart')) ?></span>
+  <span class="counter qty empty badge badge-danger" data-bind="css: { empty: !!getCartParam('summary_count') == false && !isLoading() }, blockLoader: isLoading">
+   <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+  </span>
+ </a>
+ 
+ <?php if ($block->getIsNeedToDisplaySideBar()) :?>
+ <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+   <div class="modal-content rounded-0">
+    <div class="modal-header">
+     <h5 class="modal-title h5"><?= $block->escapeHtml(__('My Cart')) ?></h5>
+     <button type="button" class="close" data-dismiss="modal" aria-label="<?= $block->escapeHtml(__('Close')) ?>">
+      <span aria-hidden="true">&times;</span>
+     </button>
+    </div>
+    <div class="modal-body">
+     <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+      <!-- ko template: getTemplate() --><!-- /ko -->
+     </div>
+     <?= $block->getChildHtml('minicart.addons') ?>
+    </div>
+   </div>
+  </div>
+ </div>
+ <?php endif ?>
+ 
+ <script>
+  window.checkout = <?= /* @noEscape */ $block->getSerializedConfig() ?>;
+ </script>
+ 
+ <script type="text/x-magento-init">
+  {
+   "[data-block='minicart']": {
+    "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+   },
+   "*": {
+    "Magento_Ui/js/block-loader": "<?= $block->escapeJs($block->escapeUrl($block->getViewFileUrl('images/loader-1.gif'))) ?>"
+   }
+  }
+ </script>
+
+</div>
+
+

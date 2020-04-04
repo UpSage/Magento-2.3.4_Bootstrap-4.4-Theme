@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+ <body>
+
+  <referenceContainer name="page.wrapper" htmlTag="div" htmlClass="site-wrapper d-flex flex-column h-100">
+
+   <!-- Header -->
+   <referenceContainer name="header.container" htmlTag="header" htmlClass="site-pre-header bg-secondary">
+
+    <referenceContainer name="header.panel.wrapper" htmlClass="container" htmlTag="div">
+     <referenceContainer name="header.panel" htmlClass="row" htmlTag="div">
+
+      <container name="header.panel.left" htmlClass="col" htmlTag="div" />
+
+      <container name="header.panel.right" htmlClass="col-auto px-0" htmlTag="div">
+       <referenceBlock name="top.links">
+        <arguments>
+         <argument name="css_class" xsi:type="string">nav justify-content-end d-none d-md-flex</argument>
+        </arguments>
+       </referenceBlock>
+      </container>
+
+     </referenceContainer>
+    </referenceContainer>
+
+    <referenceContainer name="header-wrapper">
+    
+     <referenceBlock name="logo">
+      <arguments>
+       <argument name="logo_img_width" xsi:type="number">160</argument>
+       <argument name="logo_img_height" xsi:type="number">45</argument>
+      </arguments>
+     </referenceBlock>
+     
+    </referenceContainer>
+
+   </referenceContainer>
+   <!-- // Header -->
+
+   <!-- Main -->
+   <referenceContainer name="main.content" htmlTag="main" htmlClass="site-main flex-shrink-0">
+
+    <referenceBlock name="skip_to_content" remove="true" />
+
+   </referenceContainer>
+   <!-- // Main -->
+
+   <!-- Footer -->
+   <referenceContainer name="footer-container" htmlTag="footer" htmlClass="site-footer mt-auto">
+
+    <referenceContainer name="footer" htmlTag="div" htmlClass="footer-content bg-light border-top">
+     <container name="footer.content.container" htmlTag="div" htmlClass="container">
+      <container name="footer.content.panel" htmlTag="div" htmlClass="row">
+
+       <container name="footer.content.panel.left" htmlTag="div" htmlClass="col-md-6 col-lg-7 col-xl-8" />
+
+       <container name="footer.content.panel.right" htmlTag="div" htmlClass="col-md-6 col-lg-5 col-xl-4" />
+
+      </container>
+     </container>
+    </referenceContainer>
+
+    <container name="footer.bottom" htmlTag="div" htmlClass="footer-bottom bg-secondary">
+     <container name="footer.bottom.container" htmlTag="div" htmlClass="container">
+      <container name="footer.bottom.panel" htmlTag="div" htmlClass="row">
+
+       <container name="footer.bottom.panel.left" htmlTag="div" htmlClass="col-lg-6">
+
+        <referenceBlock name="footer_links">
+         <arguments>
+          <argument name="css_class" xsi:type="string">nav d-inline-block my-4</argument>
+         </arguments>
+        </referenceBlock>
+
+       </container>
+
+       <container name="footer.bottom.panel.right" htmlTag="div" htmlClass="col-lg-6" />
+
+      </container>
+     </container>
+    </container>
+
+   </referenceContainer>
+   <!-- // Footer -->
+
+  </referenceContainer>
+
+  <!-- Move to Header -->
+  <move element="header" destination="header.panel.left" />
+  <move element="top.links" destination="header.panel.right" />
+
+  <!-- Move to Footer -->
+  <move element="store_switcher" destination="footer.content.panel.left" />
+  <move element="footer_links" destination="footer.content.panel.left" />
+  <move element="copyright" destination="footer.bottom.panel.left" />
+  <move element="report.bugs" destination="footer.bottom.panel.right" />
+
+ </body>
+</page>

@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Account\AuthorizationLink $block */
+
+$dataPostParam = '';
+
+if ($block->isLoggedIn()) {
+ $dataPostParam = sprintf(" data-post='%s'", $block->getPostParams());
+}
+
+?>
+
+<?php if ($block->isLoggedIn()) : ?>
+<li class="account-link nav-item">
+
+ <a href="<?= $block->getBaseUrl() ?>customer/account" class="nav-link text-white px-2">
+  <?= $block->escapeHtml(__('My Account')) ?>
+ </a>
+
+</li>
+<?php endif; ?>
+
+<li class="authorization-link nav-item">
+
+ <a <?= /* @noEscape */ $block->getLinkAttributes() ?><?= /* @noEscape */ $dataPostParam ?> class="nav-link text-white px-2">
+  <?= $block->escapeHtml($block->getLabel()) ?>
+ </a>
+
+</li>
+
+<?php if (!$block->isLoggedIn()) : ?>
+<li class="registration-link nav-item">
+
+ <a href="<?= $block->getBaseUrl() ?>customer/account/create" class="nav-link text-white px-2">
+  <?= $block->escapeHtml(__('Create Account')) ?>
+ </a>
+
+</li>
+<?php endif; ?>

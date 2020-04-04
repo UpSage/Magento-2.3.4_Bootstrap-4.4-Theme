@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+
+?>
+
+<a class="navbar-brand" href="<?= $block->escapeUrl($block->getUrl('')) ?>" title="<?= __('Magento'); ?>">
+ <img
+  src="<?= $block->escapeUrl($block->getLogoSrc()) ?>"
+  title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+  alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+  <?= $block->getLogoWidth() ? 'width="' . $block->escapeHtmlAttr($block->getLogoWidth()) . '"' : '' ?>
+  <?= $block->getLogoHeight() ? 'height="' . $block->escapeHtmlAttr($block->getLogoHeight()) . '"' : '' ?>
+ />
+</a>
