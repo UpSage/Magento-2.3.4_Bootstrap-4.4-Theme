@@ -11,7 +11,7 @@
 ?>
 <?php if ($block->getShowPart() == 'welcome') : ?>
     
- <div class="greet welcome text-white text-center text-md-left text-lg-right py-2" data-bind="scope: 'customer'">
+ <div class="greet welcome text-white text-center text-md-left text-lg-right font-weight-light py-2" data-bind="scope: 'customer'">
 
   <!-- ko if: customer().fullname  -->
   <span class="logged-in" data-bind="text: new String('<?= $block->escapeHtml(__('Welcome, %1!', '%1')) ?>').replace('%1', customer().fullname)"></span>

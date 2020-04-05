@@ -10,17 +10,20 @@
 <div data-block="minicart" class="minicart-wrapper ml-auto mr-2 mr-md-0">
 
  <a
-  class="action showcart btn px-2 py-1"
+  class="showcart btn px-2 py-1"
   href="<?= $block->escapeUrl($block->getShoppingCartUrl()) ?>"
   role="button"
   data-bind="scope: 'minicart_content'"
   data-toggle="modal"
   data-target="#staticBackdrop"
   >
-  <span class="text"><?= $block->escapeHtml(__('My Cart')) ?></span>
-  <span class="counter qty empty badge badge-danger" data-bind="css: { empty: !!getCartParam('summary_count') == false && !isLoading() }, blockLoader: isLoading">
-   <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+  
+  <span class="text font-weight-light"><?= $block->escapeHtml(__('My Cart')) ?></span>
+
+  <span class="counter qty empty" data-bind="css: { empty: !!getCartParam('summary_count') == false && !isLoading() }, blockLoader: isLoading">
+   <span class="counter-number badge badge-danger font-weight-light"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
   </span>
+
  </a>
  
  <?php if ($block->getIsNeedToDisplaySideBar()) :?>

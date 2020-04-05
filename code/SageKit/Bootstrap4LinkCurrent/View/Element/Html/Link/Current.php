@@ -22,12 +22,12 @@ class Current extends \Magento\Framework\View\Element\Html\Link\Current {
   if ($this->isCurrent()) {
 
    $html = '<li class="nav-item">';
-   $html .= '<a href="#" class="nav-link active">'. $this->escapeHtml(__($this->getLabel())). '</a>';
+   $html .= '<a href="#" class="nav-link text-dark font-weight-light px-0 py-1 active">'. $this->escapeHtml(__($this->getLabel())). '</a>';
    $html .= '</li>';
 
   } else {
 
-   $html = '<li class="nav-item' . $highlight . '"><a href="' . $this->escapeHtml($this->getHref()) . '" class="nav-link"';
+   $html = '<li class="nav-item' . $highlight . '"><a href="' . $this->escapeHtml($this->getHref()) . '" class="nav-link text-dark font-weight-light px-0 py-1"';
    $html .= $this->getTitle() ? ' title="' . $this->escapeHtml(__($this->getTitle())) . '"' : '';
    $html .= $this->getAttributesHtml() . '>';
    

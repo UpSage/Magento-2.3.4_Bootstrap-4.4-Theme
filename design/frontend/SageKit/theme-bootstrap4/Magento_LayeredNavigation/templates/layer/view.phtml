@@ -1,0 +1,70 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+
+<?php if ($block->canShowBlock()) : ?>
+<div class="filter">
+ 
+ <div class="filter-content">
+ 
+  <?= $block->getChildHtml('state') ?>
+  
+  <?php if ($block->getLayer()->getState()->getFilters()) : ?>
+  <div class="block-actions filter-actions">
+   <a href="<?= $block->escapeUrl($block->getClearUrl()) ?>" class="action clear filter-clear">
+    <span><?= $block->escapeHtml(__('Clear All')) ?></span>
+   </a>
+  </div>
+  <?php endif; ?>
+  
+  <?php $wrapOptions = false; ?>
+  
+  <?php if (!$wrapOptions) : ?>
+  <h2 role="heading" aria-level="2" class="font-weight-normal h6 mb-4 filter-subtitle">
+   <?= $block->escapeHtml(__('Shopping Options')) ?>
+  </h2>
+  
+  <div id="filter-accordion" class="accordion mb-4">
+  <?php $wrapOptions = true; endif; ?>
+  
+  <?php $i = 1; foreach ($block->getFilters() as $filter) : ?>
+  
+   <?php if ($filter->getItemsCount()) : ?>
+   <div class="card rounded-0 border-top-0 border-right-0 border-left-0 border-bottom filter-options">
+
+    <div class="card-header bg-light rounded-0 p-0 filter-options-title" id="heading-<?= $i ?>" role="heading">
+     <button class="w-100 btn font-weight-light text-left rounded-0 px-3 py-2" type="button" data-toggle="collapse" data-target="#collapse-<?= $i ?>" aria-expanded="true" aria-controls="collapse-<?= $i ?>">
+      <?= $block->escapeHtml(__($filter->getName())) ?>
+     </button>
+    </div>
+    
+    <div id="collapse-<?= $i ?>" class="filter-options-content collapse" aria-labelledby="heading-<?= $i ?>" data-parent="#filter-accordion">
+     <div class="card-body px-3 py-2">
+      <?= /* @noEscape */ $block->getChildBlock('renderer')->render($filter) ?>
+     </div>
+    </div>
+    
+   </div>
+   <?php endif; ?>
+   
+  <?php $i++; endforeach; ?>
+  
+  <?php if ($wrapOptions) : ?>
+  </div>
+  <?php endif; ?>
+  
+ </div>
+
+</div>
+<?php endif; ?>

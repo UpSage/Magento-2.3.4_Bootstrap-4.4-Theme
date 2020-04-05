@@ -11,9 +11,9 @@
 
  <form class="form subscribe d-flex" novalidate action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>" method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}' id="newsletter-validate-detail">
  
-  <input name="email" type="email" id="newsletter" class="form-control d-inline-block mr-2" placeholder="<?= $block->escapeHtmlAttr(__('Enter your email address')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}" />
+  <input name="email" type="email" id="newsletter" class="form-control font-weight-light d-inline-block mr-2" placeholder="<?= $block->escapeHtmlAttr(__('Enter your email address')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}" />
   
-  <button class="action subscribe btn btn-primary my-0 d-inline-block" title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>" type="submit" aria-label="Subscribe">
+  <button class="subscribe btn btn-secondary font-weight-light d-inline-block my-0" title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>" type="submit" aria-label="Subscribe">
    <?= $block->escapeHtml(__('Subscribe')) ?>
   </button>
    

@@ -44,7 +44,53 @@
    <!-- // Header -->
 
    <!-- Main -->
-   <referenceContainer name="main.content" htmlTag="main" htmlClass="site-main flex-shrink-0">
+   <referenceContainer name="main.content" htmlTag="main" htmlClass="site-main flex-shrink-0 mb-5">
+
+    <!-- Top -->
+    <referenceContainer name="columns.top" htmlTag="div" htmlClass="site-main-top">
+
+     <container name="columns.top.container" htmlTag="div" htmlClass="container">
+
+      <container name="columns.top.row.first" htmlTag="div" htmlClass="row" before="-">
+       <container name="columns.top.row.first.col" htmlTag="div" htmlClass="col" />
+      </container>
+
+      <container name="columns.top.row.second" htmlTag="div" htmlClass="row" after="columns.top.row.first">
+       <container name="columns.top.row.second.col" htmlTag="div" htmlClass="col" />
+      </container>
+
+      <container name="columns.top.row.third" htmlTag="div" htmlClass="row" after="columns.top.row.second">
+       <container name="columns.top.row.third.col" htmlTag="div" htmlClass="col" />
+      </container>
+
+     </container>
+    
+    </referenceContainer>
+    <!-- // Top -->
+
+    <!-- Content -->
+    <referenceContainer name="columns" htmlTag="div" htmlClass="site-main-column">
+     <referenceContainer name="main" htmlTag="div" htmlClass="container">
+
+      <container name="columns.row.top" htmlTag="div" htmlClass="row">
+       <referenceContainer name="content.top" htmlTag="div" htmlClass="col" />
+      </container>
+
+      <container name="columns.row.middle" htmlTag="div" htmlClass="row">
+       <referenceContainer name="content" htmlTag="div" htmlClass="col order-lg-1" />
+      </container>
+
+      <container name="columns.row.aside" htmlTag="div" htmlClass="row">
+       <referenceContainer name="content.aside" htmlTag="div" htmlClass="col" />
+      </container>
+
+      <container name="columns.row.bottom" htmlTag="div" htmlClass="row">
+       <referenceContainer name="content.bottom" htmlTag="div" htmlClass="col" />
+      </container>
+
+     </referenceContainer>
+    </referenceContainer>
+    <!-- // Content -->
 
     <referenceBlock name="skip_to_content" remove="true" />
 
@@ -94,6 +140,16 @@
   <!-- Move to Header -->
   <move element="header" destination="header.panel.left" />
   <move element="top.links" destination="header.panel.right" />
+
+  <!-- Move to Main -->
+  <move element="breadcrumbs" destination="columns.top.row.first.col" />
+  <move element="page.messages" destination="columns.top.row.second.col" />
+  <move element="page.main.title" destination="columns.top.row.third.col" />
+
+  <move element="content.top" destination="columns.row.top" before="-" />
+  <move element="content" destination="columns.row.middle" before="-" />
+  <move element="content.aside" destination="columns.row.aside" before="-" />
+  <move element="content.bottom" destination="columns.row.bottom" before="-" />
 
   <!-- Move to Footer -->
   <move element="store_switcher" destination="footer.content.panel.left" />

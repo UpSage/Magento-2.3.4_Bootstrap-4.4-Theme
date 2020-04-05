@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php if ($crumbs && is_array($crumbs)) : ?>
+<nav aria-label="breadcrumb" class="mb-4">
+ <ol class="breadcrumb bg-light rounded-0">
+
+  <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
+  <?php if ($crumbInfo['link']) : ?>
+  <li class="breadcrumb-item <?= $block->escapeHtmlAttr($crumbName) ?>">
+   <a href="<?= $block->escapeUrl($crumbInfo['link']) ?>" title="<?= $block->escapeHtmlAttr($crumbInfo['title']) ?>" class="text-dark font-weight-light"><?= $block->escapeHtml($crumbInfo['label']) ?></a>
+  </li>
+  <?php elseif ($crumbInfo['last']) : ?>
+  <li class="breadcrumb-item active <?= $block->escapeHtmlAttr($crumbName) ?>" aria-current="page">
+   <?= $block->escapeHtml($crumbInfo['label']) ?>
+  </li>
+  <?php else : ?>
+  <li class="breadcrumb-item <?= $block->escapeHtmlAttr($crumbName) ?>">
+   <a href="#" title="<?= $block->escapeHtml($crumbInfo['label']) ?>" class="text-dark font-weight-light"><?= $block->escapeHtml($crumbInfo['label']) ?></a>
+  </li>
+  <?php endif; ?>
+  <?php endforeach; ?>
+
+ </ol>
+</nav>
+<?php endif; ?>

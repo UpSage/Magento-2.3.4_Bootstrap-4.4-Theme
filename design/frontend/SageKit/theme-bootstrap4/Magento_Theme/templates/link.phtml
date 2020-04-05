@@ -10,7 +10,7 @@
 ?>
 <?php if (!$block->getIsDisabled()) : ?>
 <li class="nav-item">
- <a href="<?= $block->escapeUrl($block->getHref()) ?>" <?php if ($title = $block->getTitle()) : ?> title="<?= $block->escapeHtmlAttr(__($title)) ?>"<?php endif;?> class="nav-link">
+ <a href="<?= $block->escapeUrl($block->getHref()) ?>" <?php if ($title = $block->getTitle()) : ?> title="<?= $block->escapeHtmlAttr(__($title)) ?>"<?php endif;?> class="nav-link font-weight-light">
   <?= $block->escapeHtml(__($block->getLabel())) ?>
  </a>
 </li>

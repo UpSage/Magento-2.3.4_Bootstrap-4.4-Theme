@@ -13,7 +13,7 @@ class Link extends \Magento\Framework\View\Element\Html\Link {
    return parent::_toHtml();
   }
   
-  return '<li class="nav-item"><a ' . $this->getLinkAttributes() . '  class="nav-link">' . $this->escapeHtml($this->getLabel()) . '</a></li>';
+  return '<li class="nav-item"><a ' . $this->getLinkAttributes() . '  class="nav-link text-dark font-weight-light">' . $this->escapeHtml($this->getLabel()) . '</a></li>';
 
  }
 

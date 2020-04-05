@@ -8,9 +8,9 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
  <body>
  
-  <referenceContainer name="page.top" htmlTag="nav" htmlClass="navbar navbar-expand-md navbar-light bg-light d-block p-0">
+  <referenceContainer name="page.top" htmlTag="nav" htmlClass="navbar navbar-expand-md navbar-light bg-light d-block mb-4 p-0">
 
-   <container name="navbar.tier.primary" htmlTag="div" htmlClass="bg-white py-2 py-md-3 border-bottom" before="-">
+   <container name="navbar.tier.primary" htmlTag="div" htmlClass="bg-white py-2 py-md-3" before="-">
     <container name="navbar.tier.primary.container" htmlTag="div" htmlClass="container">
 
      <block class="Magento\Framework\View\Element\Template" name="navbar.toggler" template="SageKit_Bootstrap4Navbar::html/toggler.phtml" />
