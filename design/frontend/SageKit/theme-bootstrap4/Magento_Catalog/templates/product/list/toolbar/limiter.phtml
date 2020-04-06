@@ -14,7 +14,7 @@
 <div class="field limiter">
 
  <label class="label" for="limiter">
-  <?= $block->escapeHtml(__('Show')) ?>
+  <?= $block->escapeHtml(__('Show:')) ?>
  </label>
  
  <div class="d-inline-block mx-2">
@@ -27,6 +27,8 @@
   </select>
  </div>
  
- <span class="limiter-text"><?= $block->escapeHtml(__('per page')) ?></span>
+ <span class="font-weight-light limiter-text">
+  <?= $block->escapeHtml(__('per page')) ?>
+ </span>
 
 </div>
