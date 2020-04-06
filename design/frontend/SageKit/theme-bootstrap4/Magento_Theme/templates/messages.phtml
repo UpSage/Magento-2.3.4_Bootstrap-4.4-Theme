@@ -9,23 +9,49 @@
 
  <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
  <div role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+   
+  <!-- ko if: message.type == 'error' -->
+  <div data-bind="attr: {
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger rounded-0',
+    'data-ui-id': 'message-' + message.type
+  }">
+   <div data-bind="html: message.text"></div>
+  </div>
+  <!-- /ko -->
+
+  <!-- ko ifnot: message.type == 'error' -->
   <div data-bind="attr: {
     class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-' + message.type + ' rounded-0',
     'data-ui-id': 'message-' + message.type
   }">
    <div data-bind="html: message.text"></div>
   </div>
+  <!-- /ko -->
+ 
  </div>
  <!-- /ko -->
  
  <!-- ko if: messages().messages && messages().messages.length > 0 -->
  <div role="alert" data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages">
+
+  <!-- ko if: message.type == 'error' -->
+  <div data-bind="attr: {
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger rounded-0',
+    'data-ui-id': 'message-' + message.type
+  }">
+   <div data-bind="html: message.text"></div>
+  </div>
+  <!-- /ko -->
+
+  <!-- ko ifnot: message.type == 'error' -->
   <div data-bind="attr: {
     class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-' + message.type + ' rounded-0',
     'data-ui-id': 'message-' + message.type
   }">
    <div data-bind="html: message.text"></div>
   </div>
+  <!-- /ko -->
+
  </div>
  <!-- /ko -->
  

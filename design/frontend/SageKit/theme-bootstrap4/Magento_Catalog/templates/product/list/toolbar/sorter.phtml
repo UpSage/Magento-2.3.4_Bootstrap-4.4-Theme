@@ -1,0 +1,40 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+?>
+<div class="toolbar-sorter sorter">
+
+ <label class="sorter-label" for="sorter">
+  <?= $block->escapeHtml(__('Sort By')) ?>
+ </label>
+
+ <div class="d-inline-block mx-2">
+  <select id="sorter" data-role="sorter" class="form-control font-weight-light p-1 sorter-options">
+   <?php foreach ($block->getAvailableOrders() as $_key => $_order) :?>
+   <option value="<?= $block->escapeHtmlAttr($_key) ?>" <?php if ($block->isOrderCurrent($_key)) :?>  selected="selected" <?php endif; ?>>
+    <?= $block->escapeHtml(__($_order)) ?>
+   </option>
+   <?php endforeach; ?>
+  </select>
+ </div>
+ 
+ <?php if ($block->getCurrentDirection() == 'desc') :?>
+ <a title="<?= $block->escapeHtmlAttr(__('Set Ascending Direction')) ?>" href="#" class="sorter-action sort-desc" data-role="direction-switcher" data-value="asc">
+  <span><?= $block->escapeHtml(__('ASC')) ?></span>
+ </a>
+ <?php else :?>
+ <a title="<?= $block->escapeHtmlAttr(__('Set Descending Direction')) ?>" href="#" class="sorter-action sort-asc" data-role="direction-switcher" data-value="desc">
+  <span><?= $block->escapeHtml(__('DSC')) ?></span>
+ </a>
+ <?php endif; ?>
+
+</div>
