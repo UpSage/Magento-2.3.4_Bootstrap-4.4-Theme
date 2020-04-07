@@ -20,7 +20,7 @@
   $widgetOptions = $this->helper(\Magento\Framework\Json\Helper\Data::class)->jsonEncode($widget['productListToolbarForm']);
  ?>
  
- <div class="row border-bottom mx-0  pb-4 toolbar toolbar-products" data-mage-init='{"productListToolbarForm":<?= /* @noEscape */ $widgetOptions ?>}'>
+ <div class="row align-items-center border-bottom mx-0 toolbar toolbar-products" data-mage-init='{"productListToolbarForm":<?= /* @noEscape */ $widgetOptions ?>}'>
 
   <div class="col px-0">
 
@@ -28,11 +28,9 @@
     <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/viewmode.phtml')) ?>
    <?php endif; ?>
    
-   <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
-   
   </div>
   
-  <div class="col-auto ml-auto px-0">
+  <div class="col-auto px-0">
   
    <?php if ($block->isExpanded()) :?>
     <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')) ?>
@@ -43,15 +41,23 @@
  </div>
 
  <div class="row align-items-center">
-
+ 
   <div class="col">
-   <?= $block->getPagerHtml() ?>
-  </div>
-
-  <div class="col-auto ml-auto">
    <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
   </div>
 
+  <div class="col-auto">
+   <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
+  </div>
+
+ </div>
+
+ <div class="row align-items-center">
+ 
+  <div class="col-auto">
+   <?= $block->getPagerHtml() ?>
+  </div>
+ 
  </div>
 
 <?php endif ?>

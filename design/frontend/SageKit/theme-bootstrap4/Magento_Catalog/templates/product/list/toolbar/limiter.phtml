@@ -11,14 +11,14 @@
  * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
  */
 ?>
-<div class="my-4 field limiter">
+<div class="my-3 field limiter">
 
- <label class="label" for="limiter">
+ <label class="label mb-0" for="limiter">
   <?= $block->escapeHtml(__('Show:')) ?>
  </label>
  
  <div class="d-inline-block mx-2">
-  <select id="limiter" data-role="limiter" class="form-control font-weight-light p-1 limiter-options">
+  <select id="limiter" data-role="limiter" class="h-auto form-control font-weight-light p-1 limiter-options">
    <?php foreach ($block->getAvailableLimit() as $_key => $_limit) :?>
    <option value="<?= $block->escapeHtmlAttr($_key) ?>" <?php if ($block->isLimitCurrent($_key)) :?> selected="selected" <?php endif ?>>
     <?= $block->escapeHtml($_limit) ?>

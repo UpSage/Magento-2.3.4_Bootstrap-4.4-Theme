@@ -70,7 +70,7 @@ use Magento\Framework\App\Action\Action;
  
  <div class="col-12 products wrapper <?= /* @noEscape */ $viewMode ?> products-<?= /* @noEscape */ $viewMode ?>">
  
-  <ol class="row products list items product-items list-unstyled my-4 pb-5 border-bottom">
+  <ol class="row products list-unstyled mb-0 py-5 border-bottom list items product-items">
    
    <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
    <?php foreach ($_productCollection as $_product) :?>
@@ -89,7 +89,7 @@ use Magento\Framework\App\Action\Action;
     
      <?php // Product Image ?>
     
-     <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" class="<?= $imageMode ?> product photo product-item-photo" tabindex="-1">
+     <a href="overflow-hidden <?= $block->escapeUrl($_product->getProductUrl()) ?>" class="<?= $imageMode ?> product photo product-item-photo" tabindex="-1">
       <?= $productImage->toHtml() ?>
      </a>
      
