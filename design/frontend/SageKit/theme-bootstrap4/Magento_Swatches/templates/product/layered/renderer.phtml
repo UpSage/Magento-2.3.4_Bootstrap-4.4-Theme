@@ -61,14 +61,3 @@
   
  </div>
 </div>
-
-<script>
- require([
-  "jquery",
-  "Magento_Swatches/js/swatch-renderer"
- ], function ($) {
-  
-  $('.swatch-layered.<?= $block->escapeJs($swatchData['attribute_code']) ?>').find('[option-type="1"], [option-type="2"], [option-type="0"], [option-type="3"]').SwatchRendererTooltip();
-  
- });
-</script>
