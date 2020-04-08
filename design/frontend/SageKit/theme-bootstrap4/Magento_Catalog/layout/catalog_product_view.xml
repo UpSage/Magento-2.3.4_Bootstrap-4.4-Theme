@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+ <body>
+ 
+  <referenceContainer name="content">
+
+   <container name="product.row.top" htmlTag="div" htmlClass="row">
+    <referenceContainer name="product.info.main" htmlTag="div" htmlClass="col-md-6 order-1 mb-4 product-info-main" />
+    <referenceContainer name="product.info.media" htmlTag="div" htmlClass="col-md-6 order-0 mb-4 product-info-media" />
+   </container>
+
+   <container name="product.row.bottom" htmlTag="div" htmlClass="row">
+    <container name="product.col.bottom" htmlTag="div" htmlClass="col mb-4" />
+   </container>
+  
+  </referenceContainer>
+
+  <move element="page.main.title" destination="product.info.main" before="-" />
+  <move element="product.info.main" destination="product.row.top" before="-" />
+  <move element="product.info.media" destination="product.row.top" after="product.info.main" />
+  <move element="product.info.details" destination="product.col.bottom" before="-" />
+  
+ </body>
+</page>

@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Review\Block\Product\Review $block */
+?>
+<div id="product-review-container" data-role="product-review"></div>
+<?= $block->getChildHtml() ?>
+
+<script>
+   
+ require([
+ 'jquery',
+ 'bs4js'
+ ], function($) {
+
+  var tabSelector = $('#tab-label-reviews');
+  var reviewsUrl = '<?= $block->escapeJs($block->getProductReviewUrl()) ?>';
+    
+  tabSelector.on('show.bs.tab', function(){
+     
+  $.ajax({
+   url: reviewsUrl,
+   cache: true,
+   dataType: 'html',
+   showLoader: false
+  }).done(function (data) {
+   $('#product-review-container').html(data);
+  }).complete(function () {
+   console.log('Reviews Loaded');
+  });
+
+ });
+
+});
+
+</script>

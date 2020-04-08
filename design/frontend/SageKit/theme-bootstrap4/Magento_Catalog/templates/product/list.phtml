@@ -41,9 +41,10 @@ use Magento\Framework\App\Action\Action;
   if ($block->getMode() == 'grid') {
       
    $viewMode = 'grid';
+   $rowMode = '';
    $boxMode = 'col-6 col-md-4 pb-4';
-   $imageMode = 'col-12';
-   $contentMode = 'col-12';
+   $imageMode = '';
+   $contentMode = '';
    $imageDisplayArea = 'category_page_grid';
    $showDescription = false;
    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
@@ -51,6 +52,7 @@ use Magento\Framework\App\Action\Action;
   } else {
       
    $viewMode = 'list';
+   $rowMode = 'row';
    $boxMode = 'col-12 pb-4';
    $imageMode = 'col-4';
    $contentMode = 'col';
@@ -77,7 +79,7 @@ use Magento\Framework\App\Action\Action;
     <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
     <?php foreach ($_productCollection as $_product) :?>
     <li class="<?= $boxMode; ?> item product product-item">
-     <div class="row product-item-info" data-container="product-<?= /* @noEscape */ $viewMode ?>">
+     <div class="<?= $rowMode ?> product-item-info" data-container="product-<?= /* @noEscape */ $viewMode ?>">
 
      <?php
 
@@ -91,17 +93,17 @@ use Magento\Framework\App\Action\Action;
     
       <?php // Product Image ?>
     
-      <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" class="overflow-hidden mb-3 <?= $imageMode ?> product-photo product-item-photo" tabindex="-1">
+      <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" class="overflow-hidden <?= $imageMode ?> product-photo product-item-photo" tabindex="-1">
        <?= $productImage->toHtml() ?>
       </a>
      
-      <div class="<?= $contentMode ?> product-details product-item-details">
+      <div class="my-3 <?= $contentMode ?> product-details product-item-details">
 
        <?php
         $_productNameStripped = $block->stripTags($_product->getName(), null, true);
        ?>
       
-       <h2 class="font-weight-normal h6 mb-2 product-name product-item-name">
+       <h2 class="font-weight-bold h6 mb-2 product-name product-item-name">
         <a class="product-item-link text-dark" href="<?= $block->escapeUrl($_product->getProductUrl()) ?>">
          <?= /* @noEscape */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
         </a>
@@ -116,7 +118,7 @@ use Magento\Framework\App\Action\Action;
        <?php endif; ?>
       
        <div class="product-item-inner">
-        <div class="d-flex align-items-center mb-3 product-actions product-item-actions"<?= strpos($pos, $viewMode . '-actions') ? $block->escapeHtmlAttr($position) : '' ?>>
+        <div class="d-flex align-items-center my-3 product-actions product-item-actions"<?= strpos($pos, $viewMode . '-actions') ? $block->escapeHtmlAttr($position) : '' ?>>
 
          <div class="actions-primary"<?= strpos($pos, $viewMode . '-primary') ? $block->escapeHtmlAttr($position) : '' ?>>
         

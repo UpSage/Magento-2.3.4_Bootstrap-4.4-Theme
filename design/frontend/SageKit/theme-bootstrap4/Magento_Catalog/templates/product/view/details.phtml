@@ -1,0 +1,63 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Catalog\Block\Product\View\Details $block */
+?>
+
+<?php if ($detailedInfoGroup = $block->getGroupSortedChildNames('detailed_info', 'getChildHtml')) :?>
+<div class="product info detailed">
+
+<div class="w-100 product data items">
+ 
+ <?php $layout = $block->getLayout(); ?>
+
+ <ul class="nav nav-tabs" id="detailsTab" role="tablist">
+     
+   <?php $i = 1; ?>
+   <?php foreach ($detailedInfoGroup as $name) :?>
+
+   <?php
+    $alias = $layout->getElementAlias($name);
+    $label = $block->getChildData($alias, 'title');
+   ?>
+
+   <li class="nav-item">
+    <a class="nav-link text-dark rounded-0 <?php if($i == 1): ?>active<?php endif; ?>" id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>" data-toggle="tab" href="#<?= $block->escapeHtmlAttr($alias) ?>" role="tab" aria-controls="<?= $block->escapeHtmlAttr($alias) ?>" aria-selected="true"><?= /* @noEscape */ $label ?></a>
+   </li>
+   
+   <?php $i++; ?>
+   <?php endforeach;?>
+
+ </ul>
+
+ <div class="tab-content" id="detailsContent">
+
+  <?php $j = 1; ?>
+  <?php foreach ($detailedInfoGroup as $name) :?>
+
+  <?php
+   $html = $layout->renderElement($name);
+   if (!trim($html)) {
+    continue;
+   }
+   $alias = $layout->getElementAlias($name);
+  ?>
+
+  <div class="tab-pane fade <?php if($j == 1): ?>show active<?php endif; ?> data item content" id="<?= $block->escapeHtmlAttr($alias) ?>" data-role="content" aria-labelledby="tab-label-<?= $block->escapeHtmlAttr($alias) ?>">
+   <div class="p-3">
+    <?= /* @noEscape */ $html ?>
+   </div> 
+  </div>
+
+  <?php $j++; ?>
+  <?php endforeach;?>
+
+ </div>
+
+</div>
+
+</div>
+<?php endif; ?>
