@@ -10,21 +10,30 @@
  <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
  <div role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
    
-  <!-- ko if: message.type == 'error' -->
+  <!-- ko if: message.type == 'success' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger rounded-0',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-success rounded-0 px-3 py-2',
     'data-ui-id': 'message-' + message.type
   }">
    <div data-bind="html: message.text"></div>
   </div>
   <!-- /ko -->
 
-  <!-- ko ifnot: message.type == 'error' -->
+  <!-- ko if: message.type == 'notice' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-' + message.type + ' rounded-0',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-warning rounded-0 px-3 py-2',
     'data-ui-id': 'message-' + message.type
   }">
-   <div data-bind="html: message.text"></div>
+   <div data-bind="html: message.text" class="d-inline-block"></div>
+  </div>
+  <!-- /ko -->
+
+  <!-- ko if: message.type == 'error' -->
+  <div data-bind="attr: {
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger rounded-0 px-3 py-2',
+    'data-ui-id': 'message-' + message.type
+  }">
+   <div data-bind="html: message.text" class="d-inline-block"></div>
   </div>
   <!-- /ko -->
  
@@ -34,21 +43,30 @@
  <!-- ko if: messages().messages && messages().messages.length > 0 -->
  <div role="alert" data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages">
 
-  <!-- ko if: message.type == 'error' -->
+  <!-- ko if: message.type == 'success' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger rounded-0',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-success rounded-0 px-3 py-2',
     'data-ui-id': 'message-' + message.type
   }">
    <div data-bind="html: message.text"></div>
   </div>
   <!-- /ko -->
 
-  <!-- ko ifnot: message.type == 'error' -->
+  <!-- ko if: message.type == 'notice' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-' + message.type + ' rounded-0',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-warning rounded-0 px-3 py-2',
     'data-ui-id': 'message-' + message.type
   }">
-   <div data-bind="html: message.text"></div>
+   <div data-bind="html: message.text" class="d-inline-block"></div>
+  </div>
+  <!-- /ko -->
+
+  <!-- ko if: message.type == 'error' -->
+  <div data-bind="attr: {
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger rounded-0 px-3 py-2',
+    'data-ui-id': 'message-' + message.type
+  }">
+   <div data-bind="html: message.text" class="d-inline-block"></div>
   </div>
   <!-- /ko -->
 

@@ -7,10 +7,10 @@
 /** @var $block \Magento\Checkout\Block\Cart\Sidebar */
 ?>
 
-<div data-block="minicart" class="minicart-wrapper ml-auto mr-2 mr-md-0">
+<div data-block="minicart" class="ml-auto mr-2 mr-md-0 minicart-wrapper">
 
  <a
-  class="showcart btn px-2 py-1"
+  class="btn px-2 py-1 text-dark showcart"
   href="<?= $block->escapeUrl($block->getShoppingCartUrl()) ?>"
   role="button"
   data-bind="scope: 'minicart_content'"
@@ -18,10 +18,12 @@
   data-target="#staticBackdrop"
   >
   
-  <span class="text font-weight-light"><?= $block->escapeHtml(__('My Cart')) ?></span>
+  <span class="font-weight-light text-hide d-none text"><?= $block->escapeHtml(__('My Cart')) ?></span>
+
+  <i class="fas fa-shopping-bag"></i>
 
   <span class="counter qty empty" data-bind="css: { empty: !!getCartParam('summary_count') == false && !isLoading() }, blockLoader: isLoading">
-   <span class="counter-number badge badge-danger font-weight-light"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+   <span class="badge badge-danger font-weight-light counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
   </span>
 
  </a>

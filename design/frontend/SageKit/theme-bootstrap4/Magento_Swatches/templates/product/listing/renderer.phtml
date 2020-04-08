@@ -11,7 +11,7 @@ $productId = $block->getProduct()->getId();
 $configurableViewModel = $block->getConfigurableViewModel()
 ?>
 
-<div class="s swatch-opt-<?= $block->escapeHtmlAttr($productId) ?>" data-role="swatch-option-<?= $block->escapeHtmlAttr($productId) ?>"></div>
+<div class="swatch-opt-<?= $block->escapeHtmlAttr($productId) ?>" data-role="swatch-option-<?= $block->escapeHtmlAttr($productId) ?>"></div>
 
 <script type="text/x-magento-init">
  {
@@ -24,8 +24,7 @@ $configurableViewModel = $block->getConfigurableViewModel()
     "jsonConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>,
     "jsonSwatchConfig": <?= /* @noEscape */ $block->getJsonSwatchConfig() ?>,
     "mediaCallback": "<?= $block->escapeJs($block->escapeUrl($block->getMediaCallback())) ?>",
-    "jsonSwatchImageSizeConfig": <?= /* @noEscape */ $block->getJsonSwatchSizeConfig() ?>,
-    "showTooltip": <?= $block->escapeJs($configurableViewModel->getShowSwatchTooltip()) ?>
+    "jsonSwatchImageSizeConfig": <?= /* @noEscape */ $block->getJsonSwatchSizeConfig() ?>
    }
   }
  }

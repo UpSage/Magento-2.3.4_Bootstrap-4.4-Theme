@@ -16,13 +16,18 @@ $helper = $this->helper(\Magento\Search\Helper\Data::class);
 
  <input
   id="search"
-  class="form-control d-inline-block font-weight-light mr-2"
+  class="form-control d-inline-block font-weight-light"
   type="text"
   name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>"
   value="<?= $block->escapeHtmlAttr($helper->getEscapedQueryText()) ?>"
   placeholder="<?= $block->escapeHtmlAttr(__('Search entire store here...')) ?>"
   maxlength="<?= $block->escapeHtmlAttr($helper->getMaxQueryLength()) ?>">
 
- <button type="submit" title="<?= $block->escapeHtmlAttr(__('Search')) ?>" class="search btn btn-secondary font-weight-light d-inline-block my-0" aria-label="Search"><?= $block->escapeHtml(__('Search')) ?></button>
+ <button type="submit" title="<?= $block->escapeHtmlAttr(__('Search')) ?>" class="search btn btn-transparent text-dark font-weight-light d-inline-block my-0" aria-label="Search">
+  <span class="text-hide d-none">
+   <?= $block->escapeHtml(__('Search')) ?>
+  </span>
+  <i class="fas fa-search"></i>
+ </button>
 
 </form>

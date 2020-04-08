@@ -25,8 +25,13 @@
   <?php foreach ($_filters as $_filter) : ?>
   <li class="nav-item mb-2">
 
-   <span class="d-block filter-label"><?= $block->escapeHtml(__($_filter->getName())) ?>:</span>
-   <span class="d-block font-weight-light filter-value mb-1"><?= $block->escapeHtml($block->stripTags($_filter->getLabel())) ?></span>
+   <span class="d-block filter-label">
+    <?= $block->escapeHtml(__($_filter->getName())) ?>:
+   </span>
+
+   <span class="d-inline-block font-weight-light mr-1 mb-1 filter-value">
+    <?= $block->escapeHtml($block->stripTags($_filter->getLabel())) ?>
+   </span>
    
    <?php
    
@@ -46,8 +51,9 @@
    </a>
    
    <?php else : ?>
-   <a class="font-weight-light remove" href="<?= $block->escapeUrl($_filter->getRemoveUrl()) ?>" title="<?= /* @noEscape */ $block->escapeHtmlAttr(__('Remove')) . " " . $currentFilterName ?>">
-    <span><?= $block->escapeHtml(__('Remove')) ?></span>
+   <a class="text-dark text-decoration-none font-weight-light remove" href="<?= $block->escapeUrl($_filter->getRemoveUrl()) ?>" title="<?= /* @noEscape */ $block->escapeHtmlAttr(__('Remove')) . " " . $currentFilterName ?>">
+    <span class="text-hide d-none"><?= $block->escapeHtml(__('Remove')) ?></span>
+    <i class="fas fa-times"></i>
    </a>
    <?php endif; ?>
    

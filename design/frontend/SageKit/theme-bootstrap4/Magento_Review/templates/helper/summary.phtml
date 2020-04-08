@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Review\Block\Product\ReviewRenderer $block */
+
+$url = $block->getReviewsUrl() . '#reviews';
+$urlForm = $block->getReviewsUrl() . '#review-form';
+?>
+
+<?php if ($block->isReviewEnabled() && $block->getReviewsCount()) : ?>
+
+ <?php $rating = $block->getRatingSummary(); ?>
+ <div class="mb-2 d-flex align-items-center product-reviews-summary<?= !$rating ? ' no-rating' : '' ?>" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+ 
+  <?php if ($rating) :?>
+  <div class="rating-summary">
+   <span class="text-hide label">
+    <span><?= $block->escapeHtml(__('Rating')) ?>:</span>
+   </span>
+   <div class="w-auto d-inline-block position-relative mr-1 rating-result" title="<?= $block->escapeHtmlAttr($rating) ?>%">
+    <div class="d-flex position-absolute overflow-hidden" style="width:<?= $block->escapeHtmlAttr($rating) ?>%">
+     <i class="fas fa-star text-warning"></i>
+     <i class="fas fa-star text-warning"></i>
+     <i class="fas fa-star text-warning"></i>
+     <i class="fas fa-star text-warning"></i>
+     <i class="fas fa-star text-warning"></i>
+    </div>
+    <div class="d-flex">
+     <i class="far fa-star text-warning"></i>
+     <i class="far fa-star text-warning"></i>
+     <i class="far fa-star text-warning"></i>
+     <i class="far fa-star text-warning"></i>
+     <i class="far fa-star text-warning"></i>
+    </div>   
+   </div>
+  </div>
+  <?php endif;?>
+  
+  <div class="d-flex reviews-actions">
+
+   <a class="mx-1 action view" href="<?= $block->escapeUrl($url) ?>">
+    <small itemprop="reviewCount"><?= $block->escapeHtml($block->getReviewsCount()) ?> <?= ($block->getReviewsCount() == 1) ? $block->escapeHtml(__('Review')) : $block->escapeHtml(__('Reviews')) ?></small>
+   </a>
+   
+   <a class="mx-1 action add" href="<?= $block->escapeUrl($urlForm) ?>">
+    <small><?= $block->escapeHtml(__('Add Your Review')) ?></small>
+   </a>
+   
+  </div>
+  
+ </div>
+ 
+ <?php elseif ($block->isReviewEnabled() && $block->getDisplayIfEmpty()) : ?>
+ <div class="product-reviews-summary empty">
+  <div class="reviews-actions">
+   <a class="action add" href="<?= $block->escapeUrl($urlForm) ?>">
+    <small><?= $block->escapeHtml(__('Be the first to review this product')) ?></small>
+   </a>
+  </div>
+ </div>
+<?php endif; ?>
