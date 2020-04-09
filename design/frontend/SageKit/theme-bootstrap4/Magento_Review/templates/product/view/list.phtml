@@ -1,0 +1,102 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var Magento\Review\Block\Product\View\ListView $block */
+
+$_items = $block->getReviewsCollection()->getItems();
+$format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
+?>
+<?php if (count($_items)) : ?>
+<div class="review-list" id="customer-reviews">
+ 
+ <?php if (!$block->getHideTitle()) : ?>
+ <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-2 title">
+  <span><?= $block->escapeHtml(__('Customer Reviews')) ?></span>
+ </h2>
+ <?php endif ?>
+
+ <div class="review-list-content">
+
+  <div class="toolbar review-toolbar d-none">
+   <?= $block->getChildHtml('toolbar') ?>
+  </div>
+
+  <div class="rounded-0 border-0 card">
+   <ol class="list-group list-group-flush mb-4 items review-items">
+   
+    <?php foreach ($_items as $_review) : ?>
+    <li class="list-group-item rounded-0 border-bottom px-0 py-2 item review-item" itemscope itemprop="review" itemtype="http://schema.org/Review">
+
+     <h3 class="h6 mt-2 mb-3 review-title" itemprop="name">
+      <?= $block->escapeHtml($_review->getTitle()) ?>
+     </h3>
+
+     <div class="w-100 d-md-flex">
+     
+      <?php if (count($_review->getRatingVotes())) : ?>
+      <div class="col-md-3 px-0 pr-md-3">
+       <div class="review-ratings">
+     
+        <?php foreach ($_review->getRatingVotes() as $_vote) : ?>
+        <div class="rating-summary item" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+         <span class="label rating-label">
+          <span><?= $block->escapeHtml($_vote->getRatingCode()) ?></span>
+         </span>
+         <div class="rating-result" title="<?= $block->escapeHtmlAttr($_vote->getPercent()) ?>%">
+          <meta itemprop="worstRating" content = "1"/>
+          <meta itemprop="bestRating" content = "100"/>
+          <span style="width:<?= $block->escapeHtmlAttr($_vote->getPercent()) ?>%">
+           <span itemprop="ratingValue"><?= $block->escapeHtml($_vote->getPercent()) ?>%</span>
+          </span>
+         </div>
+        </div>
+        <?php endforeach; ?>
+      
+       </div>
+      </div>
+      <?php endif; ?>
+
+      <div class="col px-0">
+       
+       <div class="font-weight-light mb-3 review-content" itemprop="description">
+        <?= /* @noEscape */ nl2br($block->escapeHtml($_review->getDetail())) ?>
+       </div>
+       
+       <div class="font-weight-light review-details">
+        <p class="review-author mb-0">
+         <span class="review-details-label">
+          <?= $block->escapeHtml(__('Review by')) ?>
+         </span>
+         <strong class="font-weight-normal review-details-value" itemprop="author">
+          <?= $block->escapeHtml($_review->getNickname()) ?>
+         </strong>
+        </p>
+        <p class="review-date">
+         <span class="review-details-label">
+          <?= $block->escapeHtml(__('Posted on')) ?>
+         </span>
+         <time class="review-details-value" itemprop="datePublished" datetime="<?= $block->escapeHtmlAttr($block->formatDate($_review->getCreatedAt(), $format)) ?>">
+          <?= $block->escapeHtml($block->formatDate($_review->getCreatedAt(), $format)) ?>
+         </time>
+        </p>
+       </div>
+       
+      </div>
+  
+     </div>
+    </li>
+    <?php endforeach; ?>
+    
+   </ol>
+  </div>
+  
+  <div class="toolbar review-toolbar d-none">
+   <?= $block->getChildHtml('toolbar') ?>
+  </div>
+  
+ </div>
+</div>
+<?php endif;?>
