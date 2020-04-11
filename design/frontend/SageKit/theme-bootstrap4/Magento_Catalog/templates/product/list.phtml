@@ -93,7 +93,7 @@ use Magento\Framework\App\Action\Action;
     
       <?php // Product Image ?>
     
-      <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" class="overflow-hidden <?= $imageMode ?> product-photo product-item-photo" tabindex="-1">
+      <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" class="d-block overflow-hidden <?= $imageMode ?> product-photo product-item-photo" tabindex="-1">
        <?= $productImage->toHtml() ?>
       </a>
      
@@ -130,7 +130,7 @@ use Magento\Framework\App\Action\Action;
            <input type="hidden" name="product" value="<?= /* @noEscape */ $postParams['data']['product'] ?>">
            <input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
            <?= $block->getBlockHtml('formkey') ?>
-           <button type="submit" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" class="btn btn-primary rounded-0 action tocart primary">
+           <button type="submit" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" class="btn btn-primary mr-2 rounded-0 action tocart primary">
             <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
            </button>
           </form>
