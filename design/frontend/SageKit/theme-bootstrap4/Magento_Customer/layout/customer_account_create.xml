@@ -10,7 +10,15 @@
  
   <referenceContainer name="content">
    <container name="content.registration.row" htmlTag="div" htmlClass="row">
-    <container name="content.registration.col.left" htmlTag="div" htmlClass="col-lg-8 col-xl-6" />
+    <container name="content.registration.col.left" htmlTag="div" htmlClass="col-lg-8 col-xl-6">
+
+     <referenceBlock name="customer_form_register">
+      <action method="setShowAddressFields">
+       <argument name="show.address.fields" xsi:type="boolean">true</argument>
+      </action>
+     </referenceBlock>
+     
+    </div>
    </container>
   </referenceContainer>
   
