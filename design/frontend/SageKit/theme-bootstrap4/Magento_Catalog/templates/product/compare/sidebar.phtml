@@ -12,11 +12,11 @@
 
  <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-4 title">
   <span id="compare-heading" aria-level="2"><?= $block->escapeHtml(__('Compare Products')) ?></span>
-  <span class="counter qty no-display" data-bind="text: '(' + compareProducts().countCaption + ')', css: {'no-display': !compareProducts().count}"></span>
+  <span class="counter qty d-none" data-bind="text: '(' + compareProducts().countCaption + ')', css: {'d-none': !compareProducts().count}"></span>
  </h2>
  
  <!-- ko if: compareProducts().count -->
- <div class="content no-display" aria-labelledby="compare-heading" data-bind="css: {'no-display': !compareProducts().count}">
+ <div class="content d-none" aria-labelledby="compare-heading" data-bind="css: {'d-none': !compareProducts().count}">
  
   <ol id="compare-items" class="nav d-inline-block product-items product-items-names" data-bind="foreach: compareProducts().items">
    <li class="nav-item mb-2 product-item">
