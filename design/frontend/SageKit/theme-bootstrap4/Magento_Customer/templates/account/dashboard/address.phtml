@@ -6,37 +6,57 @@
 
 /** @var \Magento\Customer\Block\Account\Dashboard\Address $block */
 ?>
-<div class="block block-dashboard-addresses">
-    <div class="block-title">
-        <strong><?= $block->escapeHtml(__('Address Book')) ?></strong>
-        <a class="action edit" href="<?= $block->escapeUrl($block->getAddressBookUrl()) ?>"><span><?= $block->escapeHtml(__('Manage Addresses')) ?></span></a>
-    </div>
-    <div class="block-content">
-        <div class="box box-billing-address">
-            <strong class="box-title">
-                <span><?= $block->escapeHtml(__('Default Billing Address')) ?></span>
-            </strong>
-            <div class="box-content">
-                <address>
-                    <?= $block->getPrimaryBillingAddressHtml() ?>
-                </address>
-            </div>
-            <div class="box-actions">
-                <a class="action edit" href="<?= $block->escapeUrl($block->getPrimaryBillingAddressEditUrl()) ?>" data-ui-id="default-billing-edit-link"><span><?= $block->escapeHtml(__('Edit Address')) ?></span></a>
-            </div>
-        </div>
-        <div class="box box-shipping-address">
-            <strong class="box-title">
-                <span><?= $block->escapeHtml(__('Default Shipping Address')) ?></span>
-            </strong>
-            <div class="box-content">
-                <address>
-                    <?= $block->getPrimaryShippingAddressHtml() ?>
-                </address>
-            </div>
-            <div class="box-actions">
-                <a class="action edit" href="<?= $block->escapeUrl($block->getPrimaryShippingAddressEditUrl()) ?>" data-ui-id="default-shipping-edit-link"><span><?= $block->escapeHtml(__('Edit Address')) ?></span></a>
-            </div>
-        </div>
-    </div>
+<div class="mb-4 dashboard-addresses">
+
+ <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-4 pb-3 border-bottom title">
+  <span><?= $block->escapeHtml(__('Address Book')) ?></span>
+  <a class="font-weight-light h6 ml-2 action edit" href="<?= $block->escapeUrl($block->getAddressBookUrl()) ?>">
+   <span><?= $block->escapeHtml(__('Manage Addresses')) ?></span>
+  </a>
+ </h2>
+ 
+ <div class="row content">
+
+  <div class="col-md-6 box box-billing-address">
+
+   <h3 class="font-weight-normal h6 box-title">
+    <span><?= $block->escapeHtml(__('Default Billing Address')) ?></span>
+   </h3>
+   
+   <div class="font-weight-light mb-2 box-content">
+    <address>
+     <?= $block->getPrimaryBillingAddressHtml() ?>
+    </address>
+   </div>
+   
+   <div class="mb-3 box-actions">
+    <a class="font-weight-light action edit" href="<?= $block->escapeUrl($block->getPrimaryBillingAddressEditUrl()) ?>" data-ui-id="default-billing-edit-link">
+     <span><?= $block->escapeHtml(__('Edit Address')) ?></span>
+    </a>
+   </div>
+   
+  </div>
+  
+  <div class="col-md-6 box box-shipping-address">
+  
+   <h3 class="font-weight-normal h6 box-title">
+    <span><?= $block->escapeHtml(__('Default Shipping Address')) ?></span>
+   </h3>
+   
+   <div class="font-weight-light mb-2 box-content">
+    <address>
+     <?= $block->getPrimaryShippingAddressHtml() ?>
+    </address>
+   </div>
+   
+   <div class="mb-3 box-actions">
+    <a class="font-weight-light action edit" href="<?= $block->escapeUrl($block->getPrimaryShippingAddressEditUrl()) ?>" data-ui-id="default-shipping-edit-link">
+     <span><?= $block->escapeHtml(__('Edit Address')) ?></span>
+    </a>
+   </div>
+   
+  </div>
+ 
+ </div>
+
 </div>

@@ -10,22 +10,26 @@
   
   <referenceContainer name="sidebar.main">
 
-   <referenceBlock name="customer_account_navigation">
+   <container name="customer_account_navigation_container" htmlTag="div" htmlClass="bg-light mb-4 px-3 py-2 dashboard-nav" before="-">
 
-    <arguments>
-     <argument name="css_class" xsi:type="string">nav d-block mb-4</argument>
-    </arguments>
+    <referenceBlock name="customer_account_navigation">
+
+     <arguments>
+      <argument name="css_class" xsi:type="string">nav d-block</argument>
+     </arguments>
     
-    <referenceBlock name="customer-account-navigation-delimiter-1" remove="true" />
-    <referenceBlock name="customer-account-navigation-delimiter-2" remove="true" />
+     <referenceBlock name="customer-account-navigation-delimiter-1" remove="true" />
+     <referenceBlock name="customer-account-navigation-delimiter-2" remove="true" />
 
-   </referenceBlock>
+    </referenceBlock>
+   
+   </container>
 
    <referenceBlock name="sidebar.main.account_nav" display="false" />
 
   </referenceContainer>
 
-  <move element="customer_account_navigation" destination="sidebar.main" />
+  <move element="customer_account_navigation" destination="customer_account_navigation_container" />
   
  </body>
 </page>
