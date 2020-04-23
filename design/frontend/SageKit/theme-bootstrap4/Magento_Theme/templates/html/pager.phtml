@@ -13,11 +13,11 @@
 <?php if ($block->getCollection()->getSize()) : ?>
 
 <?php if ($block->getUseContainer()) : ?>
-<div class="pager">
+<div class="pager d-flex align-items-center">
 <?php endif ?>
  
  <?php if ($block->getShowAmounts()) : ?>
- <p class="toolbar-amount">
+ <div class="toolbar-amount my-3 ml-auto order-2">
   
   <span class="toolbar-number">
    <?php if ($block->getLastPageNum()>1) : ?>
@@ -29,7 +29,7 @@
    <?php endif; ?>
   </span>
   
- </p>
+ </div>
  <?php endif ?>
 
  <?php if ($block->getLastPageNum()>1) : ?>
@@ -93,19 +93,26 @@
  <?php endif; ?>
  
  <?php if ($block->isShowPerPage()) : ?>
- <div class="limiter">
-  <strong class="limiter-label"><?= $block->escapeHtml(__('Show')) ?></strong>
-  <select id="limiter" data-mage-init='{"redirectUrl": {"event":"change"}}' class="limiter-options">
+ <div class="limiter my-3 order-1">
 
-   <?php foreach ($block->getAvailableLimit() as $_key => $_limit) : ?>
-   <option value="<?= $block->escapeHtmlAttr($block->getLimitUrl($_key)) ?>" <?php if ($block->isLimitCurrent($_key)) : ?>selected="selected"<?php endif ?>>
-    <?= $block->escapeHtml($_limit) ?>
-   </option>
-   <?php endforeach; ?>
-   
-  </select>
-  
-  <span class="limiter-text"><?= $block->escapeHtml(__('per page')) ?></span>
+  <div class="d-flex align-items-center">
+
+   <span class="limiter-label font-weight-normal"><?= $block->escapeHtml(__('Show')) ?></span>
+
+   <div class="ml-2">
+    <select id="limiter" data-mage-init='{"redirectUrl": {"event":"change"}}' class="form-control font-weight-light p-1 limiter-options">
+     <?php foreach ($block->getAvailableLimit() as $_key => $_limit) : ?>
+     <option value="<?= $block->escapeHtmlAttr($block->getLimitUrl($_key)) ?>" <?php if ($block->isLimitCurrent($_key)) : ?>selected="selected"<?php endif ?>>
+     <?= $block->escapeHtml($_limit) ?>
+     </option>
+     <?php endforeach; ?>
+    </select>
+   </div>
+
+   <div class="font-weight-light ml-2 limiter-text"><?= $block->escapeHtml(__('per page')) ?></div>
+
+  </div>
+
  </div>
  <?php endif ?>
  
