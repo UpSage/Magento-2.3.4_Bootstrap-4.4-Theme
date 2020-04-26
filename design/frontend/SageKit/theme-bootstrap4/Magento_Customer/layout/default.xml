@@ -9,10 +9,10 @@
  <body>
 
   <referenceBlock name="my-account-link" remove="true"/>
-  <referenceBlock name="register-link" remove="true"/>
+  <referenceBlock name="register-link" remove="true"/> 
   <referenceBlock name="authentication-popup" remove="true"/>
   
-  <move element="authorization-link" destination="top.links" before="register-link" after="header" />
+  <!-- <move element="authorization-link" destination="top.links" before="register-link" after="header" /> -->
   
  </body>
 </page>

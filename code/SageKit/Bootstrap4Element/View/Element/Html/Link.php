@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace SageKit\Bootstrap4Link\View\Element\Html;
+namespace SageKit\Bootstrap4Element\View\Element\Html;
 
 class Link extends \Magento\Framework\View\Element\Html\Link {
     
@@ -13,7 +13,7 @@ class Link extends \Magento\Framework\View\Element\Html\Link {
    return parent::_toHtml();
   }
   
-  return '<li class="nav-item"><a ' . $this->getLinkAttributes() . '  class="nav-link text-dark font-weight-light">' . $this->escapeHtml($this->getLabel()) . '</a></li>';
+  return '<li class="nav-item"><a ' . $this->getLinkAttributes() . '  class="nav-link font-weight-light">' . $this->escapeHtml($this->getLabel()) . '</a></li>';
 
  }
 

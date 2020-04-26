@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace SageKit\Bootstrap4Select\View\Element\Html;
+namespace SageKit\Bootstrap4Element\View\Element\Html;
 
 class Select extends \Magento\Framework\View\Element\Html\Select {
     

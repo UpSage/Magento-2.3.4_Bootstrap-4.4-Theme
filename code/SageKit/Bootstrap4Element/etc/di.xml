@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+ <preference for="Magento\Framework\View\Element\Html\Date" type="SageKit\Bootstrap4Element\View\Element\Html\Date" />
+ <preference for="Magento\Framework\View\Element\Html\Link" type="SageKit\Bootstrap4Element\View\Element\Html\Link" />
+ <preference for="Magento\Framework\View\Element\Html\Link\Current" type="SageKit\Bootstrap4Element\View\Element\Html\Link\Current" />
+ <preference for="Magento\Framework\View\Element\Html\Select" type="SageKit\Bootstrap4Element\View\Element\Html\Select" />
+</config>

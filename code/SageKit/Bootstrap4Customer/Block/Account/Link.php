@@ -6,12 +6,9 @@
 
 namespace SageKit\Bootstrap4Customer\Block\Account;
 
-use \Magento\Customer\Block\Account\SortLinkInterface;
+use Magento\Customer\Block\Account\SortLinkInterface;
 
-/**
- * Class for sortable links.
- */
-class SortLink extends \SageKit\Bootstrap4Element\View\Element\Html\Link\Current implements SortLinkInterface {
+class Link extends \SageKit\Bootstrap4Element\View\Element\Html\Link implements SortLinkInterface {
     
  public function getSortOrder() {
   return $this->getData(self::SORT_ORDER);
