@@ -12,28 +12,28 @@
    
   <!-- ko if: message.type == 'success' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-success rounded-0 font-weight-light px-3 py-2',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-success rounded-0 font-weight-light p-0',
     'data-ui-id': 'message-' + message.type
   }">
-   <div data-bind="html: message.text"></div>
+   <div data-bind="html: message.text" class="d-block px-3 py-2"></div>
   </div>
   <!-- /ko -->
 
   <!-- ko if: message.type == 'notice' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-warning rounded-0 font-weight-light px-3 py-2',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-warning rounded-0 font-weight-light p-0',
     'data-ui-id': 'message-' + message.type
   }">
-   <div data-bind="html: message.text" class="d-inline-block"></div>
+   <div data-bind="html: message.text" class="d-block px-3 py-2"></div>
   </div>
   <!-- /ko -->
 
   <!-- ko if: message.type == 'error' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger rounded-0 font-weight-light px-3 py-2',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger rounded-0 font-weight-light p-0',
     'data-ui-id': 'message-' + message.type
   }">
-   <div data-bind="html: message.text" class="d-inline-block"></div>
+   <div data-bind="html: message.text" class="d-block px-3 py-2"></div>
   </div>
   <!-- /ko -->
  
@@ -45,28 +45,28 @@
 
   <!-- ko if: message.type == 'success' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-success font-weight-light rounded-0 px-3 py-2',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-success font-weight-light rounded-0 p-0',
     'data-ui-id': 'message-' + message.type
   }">
-   <div data-bind="html: message.text"></div>
+   <div data-bind="html: message.text" class="d-block px-3 py-2"></div>
   </div>
   <!-- /ko -->
 
   <!-- ko if: message.type == 'notice' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-warning font-weight-light rounded-0 px-3 py-2',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-warning font-weight-light rounded-0 p-0',
     'data-ui-id': 'message-' + message.type
   }">
-   <div data-bind="html: message.text" class="d-inline-block"></div>
+   <div data-bind="html: message.text" class="d-block px-3 py-2"></div>
   </div>
   <!-- /ko -->
 
   <!-- ko if: message.type == 'error' -->
   <div data-bind="attr: {
-    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger font-weight-light rounded-0 px-3 py-2',
+    class: 'message-' + message.type + ' ' + message.type + ' message ' + ' alert ' + 'alert-danger font-weight-light rounded-0 p-0',
     'data-ui-id': 'message-' + message.type
   }">
-   <div data-bind="html: message.text" class="d-inline-block"></div>
+   <div data-bind="html: message.text" class="d-block px-3 py-2"></div>
   </div>
   <!-- /ko -->
 
@@ -74,6 +74,12 @@
  <!-- /ko -->
  
 </div>
+
+<script>
+ require(['jquery', 'jquery/jquery-storageapi'], function($) {
+  $.cookieStorage.set('mage-messages', '');
+ });
+</script>
 
 <script type="text/x-magento-init">
  {

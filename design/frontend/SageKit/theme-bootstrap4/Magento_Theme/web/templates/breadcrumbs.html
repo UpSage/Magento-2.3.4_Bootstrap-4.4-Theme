@@ -1,0 +1,25 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<ol class="breadcrumb bg-light border-bottom rounded-0">
+<% _.each(breadcrumbs, function(crumb) { %>
+
+ <% if (crumb.link) { %>
+ <li class="breadcrumb-item <%- crumb.name %>">
+  <a href="<%= crumb.link %>" title="<%- crumb.title %>" class="text-dark font-weight-light"><%- crumb.label %></a>
+ </li>
+ <% } else if (crumb.last) { %>
+ <li class="breadcrumb-item active">
+  <%- crumb.label %>
+ </li>
+ <% } else { %>
+ <li class="breadcrumb-item">
+  <a href="#" title="<%- crumb.title %>" class="text-dark font-weight-light"><%- crumb.label %></a>
+ </li>
+ <% } %>
+    
+<% }); %>
+</ol>
