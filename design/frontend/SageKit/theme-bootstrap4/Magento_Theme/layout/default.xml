@@ -72,7 +72,7 @@
     <referenceContainer name="columns" htmlTag="div" htmlClass="site-main-column">
      <referenceContainer name="main" htmlTag="div" htmlClass="container">
 
-      <container name="columns.row.top" htmlTag="div" htmlClass="row">
+      <container name="columns.row.top" htmlTag="div" htmlClass="row" before="-">
        <referenceContainer name="content.top" htmlTag="div" htmlClass="col" />
       </container>
 

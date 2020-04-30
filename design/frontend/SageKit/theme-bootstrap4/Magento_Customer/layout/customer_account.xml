@@ -29,6 +29,7 @@
 
   </referenceContainer>
 
+  <move element="page.main.title" destination="content" before="-" />
   <move element="customer_account_navigation" destination="customer_account_navigation_container" />
   
  </body>

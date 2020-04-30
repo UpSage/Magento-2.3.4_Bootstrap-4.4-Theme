@@ -19,12 +19,12 @@
  <div class="content d-none" data-bind="css: {'d-none': !lastOrderedItems().items || lastOrderedItems().items.length === 0}" aria-labelledby="block-reorder-heading">
   <form method="post" class="form reorder" action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>" id="reorder-validate-detail">
    
-   <ol id="cart-sidebar-reorder" class="product-items product-items-names" data-bind="foreach: lastOrderedItems().items">
-    <li class="product-item">
+   <ol id="cart-sidebar-reorder" class="list-unstyled mb-2 product-items product-items-names" data-bind="foreach: lastOrderedItems().items">
+    <li class="d-flex product-item">
 
-     <div class="field item choice">
+     <div class="pr-2 field item choice">
 
-      <label class="label" data-bind="attr: {'for': 'reorder-item-' + id}">
+      <label class="d-none label" data-bind="attr: {'for': 'reorder-item-' + id}">
        <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
       </label>
       
@@ -34,27 +34,27 @@
 
      </div>
      
-     <strong class="product-item-name">
-      <a data-bind="attr: {href: url}" class="product-item-link">
+     <h6 class="h6 product-item-name">
+      <a data-bind="attr: {href: url}" class="font-weight-light product-item-link">
        <span data-bind="text: name"></span>
       </a>
-     </strong>
+     </h6>
 
     </li>
    </ol>
    
    <div id="cart-sidebar-reorder-advice-container"></div>
    
-   <div class="actions-toolbar">
+   <div class="d-flex align-items-center mb-3 actions-toolbar">
 
-    <div class="primary" data-bind="visible: isShowAddToCart">
-     <button type="submit" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" class="action tocart primary">
+    <div class="mr-3 primary" data-bind="visible: isShowAddToCart">
+     <button type="submit" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" class="btn btn-primary rounded-0 font-weight-light action tocart primary">
       <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
      </button>
     </div>
     
     <div class="secondary">
-     <a class="action view d-inline-block mb-3" href="<?= $block->escapeUrl($block->getUrl('customer/account')) ?>#my-orders-table">
+     <a class="font-weight-light action view d-inline-block" href="<?= $block->escapeUrl($block->getUrl('customer/account')) ?>#my-orders-table">
       <span><?= $block->escapeHtml(__('View All')) ?></span>
      </a>
     </div>

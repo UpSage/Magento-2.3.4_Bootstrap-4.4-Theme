@@ -21,17 +21,17 @@
  <?php $block->getChildBlock('items')->setItems($block->getWishlistItems()); ?>
  <?= $block->getChildHtml('items') ?>
  <?php else : ?>
- <div class="font-weight-light mb-3 message info empty">
+ <div class="alert alert-warning font-weight-light rounded-0 mb-3 message info empty" role="alert">
   <span><?= $block->escapeHtml(__('You have no items in your wish list.')) ?></span>
  </div>
  <?php endif ?>
  <?= $block->getChildHtml('bottom') ?>
  <div class="actions-toolbar">
-  <div class="primary">
+  <div class="primary mb-3">
    <?= $block->getChildHtml('control_buttons') ?>
   </div>
   <div class="secondary">
-   <a href="<?= $block->escapeUrl($block->getBackUrl()) ?>" class="font-weight-light action back">
+   <a href="<?= $block->escapeUrl($block->getBackUrl()) ?>" class="font-weight-light d-none action back">
     <span><?= $block->escapeHtml(__('Back')) ?></span>
    </a>
   </div>
