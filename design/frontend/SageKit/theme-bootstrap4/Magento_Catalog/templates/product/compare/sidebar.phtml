@@ -23,27 +23,28 @@
 
     <input type="hidden" class="compare-item-id" data-bind="value: id"/>
 
-    <span class="d-block product-item-name">
+    <span class="d-inline-block mr-1 product-item-name">
      <a data-bind="attr: {href: product_url}, html: name" class="text-dark font-weight-light mb-1 product-item-link"></a>
     </span>
     
-    <a href="#" data-bind="attr: {'data-post': remove_url}" title="<?= $block->escapeHtmlAttr(__('Remove')) ?>" class="font-weight-light delete">
-     <span><?= $block->escapeHtml(__('Remove')) ?></span>
+    <a href="#" data-bind="attr: {'data-post': remove_url}" title="<?= $block->escapeHtmlAttr(__('Remove')) ?>" class="text-dark font-weight-light delete">
+     <span class="d-none"><?= $block->escapeHtml(__('Remove')) ?></span>
+     <i class="fas fa-times"></i>
     </a>
 
    </li>
   </ol>
   
-  <div class="actions-toolbar">
+  <div class="d-flex align-items-center my-3 actions-toolbar">
 
    <div class="primary">
-    <a data-bind="attr: {'href': compareProducts().listUrl}" class="d-inline-block mb-2 compare">
+    <a data-bind="attr: {'href': compareProducts().listUrl}" class="btn btn-secondary rounded-0 mr-3 d-inline-block font-weight-light compare">
      <span><?= $block->escapeHtml(__('Compare')) ?></span>
     </a>
    </div>
    
    <div class="secondary">
-    <a id="compare-clear-all" href="#" class="d-inline-block mb-3 clear" data-post="<?=$block->escapeHtml($this->helper(Magento\Catalog\Helper\Product\Compare::class)->getPostDataClearList()) ?>">
+    <a id="compare-clear-all" href="#" class="font-weight-light d-inline-block clear" data-post="<?=$block->escapeHtml($this->helper(Magento\Catalog\Helper\Product\Compare::class)->getPostDataClearList()) ?>">
      <span><?= $block->escapeHtml(__('Clear All')) ?></span>
     </a>
    </div>
