@@ -7,26 +7,20 @@
 /** @var \Magento\Customer\Block\Widget\Gender $block */
 ?>
 
-<div class="field gender<?= $block->isRequired() ? ' required' : ''?>">
+<div class="form-group font-weight-light field gender<?= $block->isRequired() ? ' required' : ''?>">
 
- <div class="form-row">
-  <div class="col-lg-8 col-xl-9 form-group font-weight-light">
-  
-   <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>">
-    <span><?= $block->escapeHtml($block->getStoreLabel('gender')) ?></span>
-   </label>
-   
-   <div class="control">
-    <select id="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>" name="<?= $block->escapeHtmlAttr($block->getFieldName('gender')) ?>" title="<?= $block->escapeHtmlAttr($block->getStoreLabel('gender')) ?>"<?php if ($block->isRequired()) : ?> class="form-control validate-select" data-validate="{required:true}"<?php endif; ?>>
-     <?php $options = $block->getGenderOptions(); ?>
-     <?php $value = $block->getGender(); ?>
-     <?php foreach ($options as $option) : ?>
-     <option value="<?= $block->escapeHtmlAttr($option->getValue()) ?>"<?= ($option->getValue() == $value) ? ' selected="selected"' : '' ?>><?= $block->escapeHtml(__($option->getLabel())) ?></option>
-     <?php endforeach;?>
-    </select>
-   </div>
-   
-  </div> 
+ <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>">
+  <span><?= $block->escapeHtml($block->getStoreLabel('gender')) ?></span>
+ </label>
+ 
+ <div class="control">
+  <select id="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>" name="<?= $block->escapeHtmlAttr($block->getFieldName('gender')) ?>" title="<?= $block->escapeHtmlAttr($block->getStoreLabel('gender')) ?>"<?php if ($block->isRequired()) : ?> class="form-control validate-select" data-validate="{required:true}"<?php endif; ?>>
+   <?php $options = $block->getGenderOptions(); ?>
+   <?php $value = $block->getGender(); ?>
+   <?php foreach ($options as $option) : ?>
+   <option value="<?= $block->escapeHtmlAttr($option->getValue()) ?>"<?= ($option->getValue() == $value) ? ' selected="selected"' : '' ?>><?= $block->escapeHtml(__($option->getLabel())) ?></option>
+   <?php endforeach;?>
+  </select>
  </div>
 
 </div>

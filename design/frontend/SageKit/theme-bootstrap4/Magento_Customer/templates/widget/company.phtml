@@ -7,21 +7,15 @@
 /** @var \Magento\Customer\Block\Widget\Company $block */
 ?>
 
-<div class="field company <?= $block->isRequired() ? 'required' : '' ?>">
+<div class="form-group font-weight-light field company <?= $block->isRequired() ? 'required' : '' ?>">
 
- <div class="form-row">
-  <div class="col-lg-8 col-xl-9 form-group font-weight-light">
-  
-   <label for="company" class="label">
-    <span><?= $block->escapeHtml(__('Company')) ?></span>
-   </label>
-   
-   <div class="control">
-    <?php $_validationClass = $block->escapeHtmlAttr($this->helper(\Magento\Customer\Helper\Address::class)->getAttributeValidationClass('company')); ?>
-    <input type="text" name="company" id="company" value="<?= $block->escapeHtmlAttr($block->getCompany()) ?>" title="<?= $block->escapeHtmlAttr(__('Company')) ?>" class="form-control input-text <?= $_validationClass ?: '' ?>">
-   </div>
-   
-  </div>
+ <label for="company" class="label">
+  <span><?= $block->escapeHtml(__('Company')) ?></span>
+ </label>
+ 
+ <div class="control">
+  <?php $_validationClass = $block->escapeHtmlAttr($this->helper(\Magento\Customer\Helper\Address::class)->getAttributeValidationClass('company')); ?>
+  <input type="text" name="company" id="company" value="<?= $block->escapeHtmlAttr($block->getCompany()) ?>" title="<?= $block->escapeHtmlAttr(__('Company')) ?>" class="form-control input-text <?= $_validationClass ?: '' ?>">
  </div>
 
 </div>

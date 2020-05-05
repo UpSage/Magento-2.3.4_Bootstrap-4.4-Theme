@@ -33,7 +33,7 @@ $captcha = $block->getCaptchaModel();
 
      <img alt="<?= $block->escapeHtmlAttr(__('Please type the letters and numbers below')) ?>" class="my-2 captcha-img" height="<?= /* @noEscape */ (float) $block->getImgHeight() ?>" src="<?= $block->escapeUrl($captcha->getImgSrc()) ?>"/>
 
-     <button type="button" class="btn btn-light border ml-3 action reload captcha-reload" title="<?= $block->escapeHtmlAttr(__('Reload captcha')) ?>">
+     <button type="button" class="btn btn-light font-weight-light border ml-3 action reload captcha-reload" title="<?= $block->escapeHtmlAttr(__('Reload captcha')) ?>">
       <span><?= $block->escapeHtml(__('Reload captcha')) ?></span>
      </button>
 

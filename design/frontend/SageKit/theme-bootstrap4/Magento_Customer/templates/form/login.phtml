@@ -9,7 +9,7 @@
 
 <div class="customer-login">
     
- <h2 role="heading" aria-level="2" id="customer-heading" class="font-weight-light h5 mb-3 pb-3 border-bottom title">
+ <h2 role="heading" aria-level="2" id="customer-heading" class="font-weight-light h5 mb-4 pb-3 border-bottom title">
   <span aria-level="2"><?= $block->escapeHtml(__('Registered Customers')) ?></span>
  </h2>
  
@@ -67,7 +67,7 @@
      </button>
     </div>
     <div class="secondary">
-     <a class="text-dark action remind" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>">
+     <a class="text-dark font-weight-light action remind" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>">
       <span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span>
      </a>
     </div>
