@@ -25,53 +25,60 @@ $wishlistHelper = $this->helper(\Magento\Wishlist\Helper\Data::class);
  <div class="content">
  
   <!-- ko if: wishlist().counter -->
-  <ol class="product-items no-display" id="wishlist-sidebar" data-bind="foreach: wishlist().items, css: {'no-display': null}">
+  <ol class="list-unstyled product-items d-none" id="wishlist-sidebar" data-bind="foreach: wishlist().items, css: {'d-none': null}">
    <li class="product-item">
   
-    <div class="product-item-info">
+    <div class="row mb-3 product-item-info">
 
-     <a class="product-item-photo" data-bind="attr: { href: product_url, title: product_name }">
-     <!-- ko template: {name: $data.image.template, data: $data.image} --><!-- /ko -->
-     </a>
+     <div class="col-auto">
+      <a class="d-block product-item-photo" data-bind="attr: { href: product_url, title: product_name }">
+      <!-- ko template: {name: $data.image.template, data: $data.image} --><!-- /ko -->
+      </a>
+     </div>
     
-     <div class="product-item-details">
+     <div class="col product-item-details">
 
-      <strong class="product-item-name">
-       <a data-bind="attr: { href: product_url }" class="product-item-link">
-        <span data-bind="html: product_name"></span>
-       </a>
-      </strong>
-     
-      <div data-bind="html: product_price"></div>
-     
-      <div class="product-item-actions">
+      <div class="d-flex">
 
-       <!-- ko if: product_is_saleable_and_visible -->
-       <div class="actions-primary">
-
-        <!-- ko if: product_has_required_options -->
-        <a href="#" data-bind="attr: {'data-post': add_to_cart_params}" class="action tocart primary">
-         <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
-        </a>
-        <!-- /ko -->
+       <div class="mr-2">
        
-        <!-- ko ifnot: product_has_required_options -->
-        <button type="button" class="action tocart primary" data-bind="attr: {'data-post': add_to_cart_params}">
-         <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
-        </button>
+        <span class="product-item-name">
+         <a data-bind="attr: { href: product_url }" class="text-dark font-weight-light mb-1 product-item-link">
+          <span data-bind="html: product_name"></span>
+         </a>
+        </span>
+        
+        <div data-bind="html: product_price"></div>
+        
+        <!-- ko if: product_is_saleable_and_visible -->
+        <div class="actions-primary">
+        
+         <!-- ko if: product_has_required_options -->
+         <a href="#" data-bind="attr: {'data-post': add_to_cart_params}" class="btn btn-primary rounded-0 font-weight-light action tocart primary">
+          <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+         </a>
+         <!-- /ko -->
+         
+         <!-- ko ifnot: product_has_required_options -->
+         <button type="button" class="btn btn-primary rounded-0 font-weight-light action tocart primary" data-bind="attr: {'data-post': add_to_cart_params}">
+          <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+         </button>
+         <!-- /ko -->
+         
+        </div>
         <!-- /ko -->
-       
+
        </div>
-       <!-- /ko -->
-      
-       <div class="actions-secondary">
-        <a href="#" data-bind="attr: {'data-post': delete_item_params}" title="<?= $block->escapeHtmlAttr(__('Remove')) ?>" class="font-weight-light delete">
-         <span><?= $block->escapeHtml(__('Remove')) ?></span>
+
+       <div class="ml-auto actions-secondary">
+        <a href="#" data-bind="attr: {'data-post': delete_item_params}" title="<?= $block->escapeHtmlAttr(__('Remove')) ?>" class="text-dark font-weight-light delete">
+         <span class="d-none"><?= $block->escapeHtml(__('Remove')) ?></span>
+         <i class="fas fa-times"></i>
         </a>
        </div>
-      
+
       </div>
-     
+
      </div>
     
     </div>
@@ -79,10 +86,10 @@ $wishlistHelper = $this->helper(\Magento\Wishlist\Helper\Data::class);
    </li>
   </ol>
  
-  <div class="actions-toolbar no-display" data-bind="css: {'no-display': null}">
+  <div class="actions-toolbar d-none" data-bind="css: {'d-none': null}">
 
    <div class="primary">
-    <a class="d-inline-block mb-2 details" href="<?= $block->escapeUrl($this->helper(\Magento\Wishlist\Helper\Data::class)->getListUrl()) ?>" title="<?= $block->escapeHtmlAttr(__('Go to Wish List')) ?>">
+    <a class="d-inline-block font-weight-light mb-2 details" href="<?= $block->escapeUrl($this->helper(\Magento\Wishlist\Helper\Data::class)->getListUrl()) ?>" title="<?= $block->escapeHtmlAttr(__('Go to Wish List')) ?>">
      <span><?= $block->escapeHtml(__('Go to Wish List')) ?></span>
     </a>
    </div>
@@ -91,7 +98,7 @@ $wishlistHelper = $this->helper(\Magento\Wishlist\Helper\Data::class);
   <!-- /ko -->
  
   <!-- ko ifnot: wishlist().counter -->
-  <div class="empty font-weight-light mb-4">
+  <div class="font-weight-light mb-4 empty">
    <?= $block->escapeHtml(__('You have no items in your wish list.')) ?>
   </div>
   <!-- /ko -->
