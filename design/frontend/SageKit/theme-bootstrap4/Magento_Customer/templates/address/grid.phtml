@@ -8,46 +8,46 @@
 $customerAddressView = $block->getData('customer_address');
 ?>
 
-<div class="addresses-list">
+<div class="block block-addresses-list">
 
- <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-4 pb-3 border-bottom title">
+ <h2 role="heading" aria-level="2" class="block-title font-weight-light h5 mb-4 pb-3 border-bottom">
   <span><?= $block->escapeHtml(__('Additional Address Entries')) ?></span>
  </h2>
  
- <div class="content">
+ <div class="block-content">
  
   <?php if ($_pAddsses = $block->getAdditionalAddresses()) : ?>
-  <div class="table-responsive table-wrapper additional-addresses">
-   <table class="table-bordered data table table-additional-addresses-items history" id="additional-addresses-table">
+  <div class="table-wrapper additional-addresses table-responsive">
+   <table class="data table table-additional-addresses-items history table-bordered" id="additional-addresses-table">
 
     <caption class="text-hide table-caption"><?= $block->escapeHtml(__('Additional addresses')) ?></caption>
 
     <thead>
      <tr>
-      <th scope="col" class="font-weight-normal firstname"><?= $block->escapeHtml(__('First Name')) ?></th>
-      <th scope="col" class="font-weight-normal lastname"><?= $block->escapeHtml(__('Last Name')) ?></th>
-      <th scope="col" class="font-weight-normal streetaddress"><?= $block->escapeHtml(__('Street Address')) ?></th>
-      <th scope="col" class="font-weight-normal city"><?= $block->escapeHtml(__('City')) ?></th>
-      <th scope="col" class="font-weight-normal country"><?= $block->escapeHtml(__('Country')) ?></th>
-      <th scope="col" class="font-weight-normal state"><?= $block->escapeHtml(__('State')) ?></th>
-      <th scope="col" class="font-weight-normal zip"><?= $block->escapeHtml(__('Zip/Postal Code')) ?></th>
-      <th scope="col" class="font-weight-normal phone"><?= $block->escapeHtml(__('Phone')) ?></th>
-      <th scope="col" class="font-weight-normal actions"> </th>
+      <th scope="col" class="firstname font-weight-normal"><?= $block->escapeHtml(__('First Name')) ?></th>
+      <th scope="col" class="lastname font-weight-normal"><?= $block->escapeHtml(__('Last Name')) ?></th>
+      <th scope="col" class="streetaddress font-weight-normal"><?= $block->escapeHtml(__('Street Address')) ?></th>
+      <th scope="col" class="city font-weight-normal"><?= $block->escapeHtml(__('City')) ?></th>
+      <th scope="col" class="country font-weight-normal"><?= $block->escapeHtml(__('Country')) ?></th>
+      <th scope="col" class="state font-weight-normal"><?= $block->escapeHtml(__('State')) ?></th>
+      <th scope="col" class="zip font-weight-normal"><?= $block->escapeHtml(__('Zip/Postal Code')) ?></th>
+      <th scope="col" class="phone font-weight-normal"><?= $block->escapeHtml(__('Phone')) ?></th>
+      <th scope="col" class="actions font-weight-normal"> </th>
      </tr>
     </thead>
     
     <tbody>
      <?php foreach ($_pAddsses as $address) : ?>
      <tr>
-      <td data-th="<?= $block->escapeHtmlAttr(__('First Name')) ?>" class="font-weight-light firstname"><?= $block->escapeHtml($address->getFirstname()) ?></td>
-      <td data-th="<?= $block->escapeHtmlAttr(__('Last Name')) ?>" class="font-weight-light lastname"><?= $block->escapeHtml($address->getLastname()) ?></td>
-      <td data-th="<?= $block->escapeHtmlAttr(__('Street Address')) ?>" class="font-weight-light streetaddress"><?= $block->escapeHtml($block->getStreetAddress($address)) ?></td>
-      <td data-th="<?= $block->escapeHtmlAttr(__('City')) ?>" class="font-weight-light city"><?= $block->escapeHtml($address->getCity()) ?></td>
-      <td data-th="<?= $block->escapeHtmlAttr(__('Country')) ?>" class="font-weight-light country"><?= $block->escapeHtml($block->getCountryByCode($address->getCountryId())) ?></td>
-      <td data-th="<?= $block->escapeHtmlAttr(__('State')) ?>" class="font-weight-light state"><?= $block->escapeHtml($address->getRegion()->getRegion()) ?></td>
-      <td data-th="<?= $block->escapeHtmlAttr(__('Zip/Postal Code')) ?>" class="font-weight-light zip"><?= $block->escapeHtml($address->getPostcode()) ?></td>
-      <td data-th="<?= $block->escapeHtmlAttr(__('Phone')) ?>" class="font-weight-light phone"><?= $block->escapeHtml($address->getTelephone()) ?></td>
-      <td data-th="<?= $block->escapeHtmlAttr(__('Actions')) ?>" class="font-weight-light actions">
+      <td data-th="<?= $block->escapeHtmlAttr(__('First Name')) ?>" class="firstname font-weight-light"><?= $block->escapeHtml($address->getFirstname()) ?></td>
+      <td data-th="<?= $block->escapeHtmlAttr(__('Last Name')) ?>" class="lastname font-weight-light"><?= $block->escapeHtml($address->getLastname()) ?></td>
+      <td data-th="<?= $block->escapeHtmlAttr(__('Street Address')) ?>" class="streetaddress font-weight-light"><?= $block->escapeHtml($block->getStreetAddress($address)) ?></td>
+      <td data-th="<?= $block->escapeHtmlAttr(__('City')) ?>" class="city font-weight-light"><?= $block->escapeHtml($address->getCity()) ?></td>
+      <td data-th="<?= $block->escapeHtmlAttr(__('Country')) ?>" class="country font-weight-light"><?= $block->escapeHtml($block->getCountryByCode($address->getCountryId())) ?></td>
+      <td data-th="<?= $block->escapeHtmlAttr(__('State')) ?>" class="state font-weight-light"><?= $block->escapeHtml($address->getRegion()->getRegion()) ?></td>
+      <td data-th="<?= $block->escapeHtmlAttr(__('Zip/Postal Code')) ?>" class="zip font-weight-light"><?= $block->escapeHtml($address->getPostcode()) ?></td>
+      <td data-th="<?= $block->escapeHtmlAttr(__('Phone')) ?>" class="phone font-weight-light"><?= $block->escapeHtml($address->getTelephone()) ?></td>
+      <td data-th="<?= $block->escapeHtmlAttr(__('Actions')) ?>" class="actions font-weight-light">
        <a class="action edit" href="<?= $block->escapeUrl($block->getUrl('customer/address/edit', ['id' => $address->getId()])) ?>">
         <span><?= $block->escapeHtml(__('Edit')) ?></span>
        </a>
@@ -69,7 +69,7 @@ $customerAddressView = $block->getData('customer_address');
   <?php endif ?>
   
   <?php else : ?>
-  <p class="font-weight-light mb-3 empty">
+  <p class="empty font-weight-light mb-3">
    <?= $block->escapeHtml(__('You have no other address entries in your address book.')) ?>
   </p>
   <?php endif ?>
@@ -80,12 +80,12 @@ $customerAddressView = $block->getData('customer_address');
 
 <div class="actions-toolbar">
  <div class="primary">
-  <button type="button" role="add-address" title="<?= $block->escapeHtmlAttr(__('Add New Address')) ?>" class="btn btn-primary font-weight-light mb-3 action primary add">
+  <button type="button" role="add-address" title="<?= $block->escapeHtmlAttr(__('Add New Address')) ?>" class="action primary add btn btn-primary font-weight-light mb-3">
    <span><?= $block->escapeHtml(__('Add New Address')) ?></span>
   </button>
  </div>
  <div class="secondary">
-  <a class="text-dark font-weight-light action back" href="<?= $block->escapeUrl($block->getUrl('customer/account')) ?>">
+  <a class="action back text-dark font-weight-light" href="<?= $block->escapeUrl($block->getUrl('customer/account')) ?>">
    <span><?= $block->escapeHtml(__('Back')) ?></span>
   </a>
  </div>

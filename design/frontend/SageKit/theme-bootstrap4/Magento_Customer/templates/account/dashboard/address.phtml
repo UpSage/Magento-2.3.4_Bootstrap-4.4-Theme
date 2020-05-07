@@ -6,51 +6,51 @@
 
 /** @var \Magento\Customer\Block\Account\Dashboard\Address $block */
 ?>
-<div class="mb-4 dashboard-addresses">
+<div class="block block-dashboard-addresses mb-4">
 
- <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-4 pb-3 border-bottom title">
+ <h2 role="heading" aria-level="2" class="block-title font-weight-light h5 mb-4 pb-3 border-bottom">
   <span><?= $block->escapeHtml(__('Address Book')) ?></span>
-  <a class="font-weight-light h6 ml-2 action edit" href="<?= $block->escapeUrl($block->getAddressBookUrl()) ?>">
+  <a class="action edit font-weight-light h6 ml-2" href="<?= $block->escapeUrl($block->getAddressBookUrl()) ?>">
    <span><?= $block->escapeHtml(__('Manage Addresses')) ?></span>
   </a>
  </h2>
  
- <div class="row content">
+ <div class="block-content row">
 
-  <div class="col-md-6 box box-billing-address">
+  <div class="box box-billing-address col-md-6">
 
-   <h3 class="font-weight-normal h6 box-title">
+   <h3 class="box-title font-weight-normal h6">
     <span><?= $block->escapeHtml(__('Default Billing Address')) ?></span>
    </h3>
    
-   <div class="font-weight-light mb-2 box-content">
+   <div class="box-content font-weight-light mb-2">
     <address>
      <?= $block->getPrimaryBillingAddressHtml() ?>
     </address>
    </div>
    
-   <div class="mb-3 box-actions">
-    <a class="font-weight-light action edit" href="<?= $block->escapeUrl($block->getPrimaryBillingAddressEditUrl()) ?>" data-ui-id="default-billing-edit-link">
+   <div class="box-actions mb-3">
+    <a class="action edit font-weight-light" href="<?= $block->escapeUrl($block->getPrimaryBillingAddressEditUrl()) ?>" data-ui-id="default-billing-edit-link">
      <span><?= $block->escapeHtml(__('Edit Address')) ?></span>
     </a>
    </div>
    
   </div>
   
-  <div class="col-md-6 box box-shipping-address">
+  <div class="box box-shipping-address col-md-6">
   
-   <h3 class="font-weight-normal h6 box-title">
+   <h3 class="box-title font-weight-normal h6">
     <span><?= $block->escapeHtml(__('Default Shipping Address')) ?></span>
    </h3>
    
-   <div class="font-weight-light mb-2 box-content">
+   <div class="box-content font-weight-light mb-2">
     <address>
      <?= $block->getPrimaryShippingAddressHtml() ?>
     </address>
    </div>
    
-   <div class="mb-3 box-actions">
-    <a class="font-weight-light action edit" href="<?= $block->escapeUrl($block->getPrimaryShippingAddressEditUrl()) ?>" data-ui-id="default-shipping-edit-link">
+   <div class="box-actions mb-3">
+    <a class="action edit font-weight-light" href="<?= $block->escapeUrl($block->getPrimaryShippingAddressEditUrl()) ?>" data-ui-id="default-shipping-edit-link">
      <span><?= $block->escapeHtml(__('Edit Address')) ?></span>
     </a>
    </div>

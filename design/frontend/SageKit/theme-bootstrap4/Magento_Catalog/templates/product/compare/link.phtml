@@ -6,9 +6,9 @@
 
 /** @var $block Magento\Framework\View\Element\Template */
 ?>
-<li class="nav-item item link compare" data-bind="scope: 'compareProducts'" data-role="compare-products-link">
+<li class="item link compare nav-item" data-bind="scope: 'compareProducts'" data-role="compare-products-link">
 
- <a class="nav-link font-weight-light text-white px-2 action compare d-none" title="<?= $block->escapeHtmlAttr(__('Compare Products')) ?>" data-bind="attr: {'href': compareProducts().listUrl}, css: {'d-none': !compareProducts().count}" >
+ <a class="action compare d-none nav-link font-weight-light text-white px-2" title="<?= $block->escapeHtmlAttr(__('Compare Products')) ?>" data-bind="attr: {'href': compareProducts().listUrl}, css: {'d-none': !compareProducts().count}" >
   <?= $block->escapeHtml(__('Compare Products')) ?>
   <span class="counter qty" data-bind="text: compareProducts().countCaption"></span>
  </a>

@@ -12,10 +12,10 @@ $columns = $block->getColumns();
 <div class="products-grid wishlist">
 
  <?php if (count($block->getItems())) : ?>
- <ol class="row list-unstyled product-items">
+ <ol class="product-items row list-unstyled">
  
   <?php foreach ($block->getItems() as $item) : ?>
-  <li data-row="product-item" class="col-6 col-md-4 pb-4 product-item" id="item_<?= $block->escapeHtmlAttr($item->getId()) ?>">
+  <li data-row="product-item" class="product-item col-6 col-md-4 pb-4" id="item_<?= $block->escapeHtmlAttr($item->getId()) ?>">
    <div class="product-item-info" data-container="product-grid">
     <?php foreach ($columns as $column) : ?>
     <?= $column->setItem($item)->toHtml();?>
@@ -26,7 +26,7 @@ $columns = $block->getColumns();
   
  </ol>
  <?php else : ?>
- <div class="alert alert-warning font-weight-light rounded-0 mb-3 message info empty" role="alert">
+ <div class="message info empty alert alert-warning font-weight-light rounded-0 mb-3" role="alert">
   <span><?= $block->escapeHtml(__('This Wish List has no Items')) ?></span>
  </div>
  <?php endif; ?>

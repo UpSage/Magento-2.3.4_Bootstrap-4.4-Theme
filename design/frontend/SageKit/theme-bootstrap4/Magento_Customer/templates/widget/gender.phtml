@@ -7,14 +7,14 @@
 /** @var \Magento\Customer\Block\Widget\Gender $block */
 ?>
 
-<div class="form-group font-weight-light field gender<?= $block->isRequired() ? ' required' : ''?>">
+<div class="field gender<?= $block->isRequired() ? ' required' : ''?> form-group font-weight-light">
 
  <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>">
   <span><?= $block->escapeHtml($block->getStoreLabel('gender')) ?></span>
  </label>
  
  <div class="control">
-  <select id="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>" name="<?= $block->escapeHtmlAttr($block->getFieldName('gender')) ?>" title="<?= $block->escapeHtmlAttr($block->getStoreLabel('gender')) ?>"<?php if ($block->isRequired()) : ?> class="form-control validate-select" data-validate="{required:true}"<?php endif; ?>>
+  <select id="<?= $block->escapeHtmlAttr($block->getFieldId('gender')) ?>" name="<?= $block->escapeHtmlAttr($block->getFieldName('gender')) ?>" title="<?= $block->escapeHtmlAttr($block->getStoreLabel('gender')) ?>"<?php if ($block->isRequired()) : ?> class="validate-select form-control" data-validate="{required:true}"<?php endif; ?>>
    <?php $options = $block->getGenderOptions(); ?>
    <?php $value = $block->getGender(); ?>
    <?php foreach ($options as $option) : ?>

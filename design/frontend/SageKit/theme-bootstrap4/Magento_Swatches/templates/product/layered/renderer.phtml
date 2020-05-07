@@ -14,7 +14,7 @@
  <div class="swatch-attribute-options clearfix py-1">
  
   <?php foreach ($swatchData['options'] as $option => $label) : ?>
-  <a href="<?= $block->escapeUrl($label['link']) ?>" aria-label="<?= $block->escapeHtmlAttr($label['label']) ?>" class="d-inline-block mr-1 my-1 text-dark text-decoration-none swatch-option-link-layered">
+  <a href="<?= $block->escapeUrl($label['link']) ?>" aria-label="<?= $block->escapeHtmlAttr($label['label']) ?>" class="swatch-option-link-layered d-inline-block mr-1 my-1 text-dark text-decoration-none">
   
    <?php if (isset($swatchData['swatches'][$option]['type'])) : ?>
 
@@ -22,7 +22,7 @@
      case '3':
     ?>
     
-    <div class="px-3 py-3 border swatch-option <?= $block->escapeHtmlAttr($label['custom_style']) ?>" tabindex="-1" option-type="3" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="" option-tooltip-value=""></div>
+    <div class="swatch-option <?= $block->escapeHtmlAttr($label['custom_style']) ?> px-3 py-3 border" tabindex="-1" option-type="3" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="" option-tooltip-value=""></div>
     
     <?php
      break;
@@ -32,14 +32,14 @@
     <?php $swatchThumbPath = $block->getSwatchPath('swatch_thumb', $swatchData['swatches'][$option]['value']); ?>
     <?php $swatchImagePath = $block->getSwatchPath('swatch_image', $swatchData['swatches'][$option]['value']); ?>
     
-    <div class="px-3 py-3 border swatch-option image <?= $block->escapeHtmlAttr($label['custom_style']) ?>" tabindex="-1" option-type="2" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="<?= $block->escapeUrl($swatchThumbPath) ?>" option-tooltip-value="" style="background: url(<?= $block->escapeUrl($swatchImagePath) ?>) no-repeat center; background-size: initial;"></div>
+    <div class="swatch-option image <?= $block->escapeHtmlAttr($label['custom_style']) ?> px-3 py-3 border" tabindex="-1" option-type="2" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="<?= $block->escapeUrl($swatchThumbPath) ?>" option-tooltip-value="" style="background: url(<?= $block->escapeUrl($swatchImagePath) ?>) no-repeat center; background-size: initial;"></div>
     
     <?php
      break;
      case '1':
     ?>
     
-    <div class="px-3 py-3 border swatch-option color <?= $block->escapeHtmlAttr($label['custom_style']) ?>" tabindex="-1" option-type="1" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="" option-tooltip-value="<?= $block->escapeHtmlAttr($swatchData['swatches'][$option]['value']) ?>" style="background: <?= $block->escapeHtmlAttr($swatchData['swatches'][$option]['value']) ?> no-repeat center; background-size: initial;"></div>
+    <div class="swatch-option color <?= $block->escapeHtmlAttr($label['custom_style']) ?> px-3 py-3 border" tabindex="-1" option-type="1" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="" option-tooltip-value="<?= $block->escapeHtmlAttr($swatchData['swatches'][$option]['value']) ?>" style="background: <?= $block->escapeHtmlAttr($swatchData['swatches'][$option]['value']) ?> no-repeat center; background-size: initial;"></div>
     
     <?php
      break;
@@ -47,7 +47,7 @@
      default: 
     ?>
     
-    <div class="px-2 py-1 bg-light border swatch-option text <?= $block->escapeHtmlAttr($label['custom_style']) ?>" tabindex="-1" option-type="0" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="" option-tooltip-value=""><?= $block->escapeHtml($swatchData['swatches'][$option]['value']) ?></div>
+    <div class="swatch-option text <?= $block->escapeHtmlAttr($label['custom_style']) ?> px-2 py-1 bg-light border" tabindex="-1" option-type="0" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="" option-tooltip-value=""><?= $block->escapeHtml($swatchData['swatches'][$option]['value']) ?></div>
     
     <?php
      break;

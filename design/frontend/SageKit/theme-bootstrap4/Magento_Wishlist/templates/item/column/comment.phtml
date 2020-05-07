@@ -10,14 +10,14 @@
 $item = $block->getItem();
 ?>
 
-<div class="mb-2 field comment-box">
+<div class="comment-box mb-2 field">
 
- <label class="font-weight-light label" for="product-item-comment-<?= $block->escapeHtmlAttr($item->getWishlistItemId()) ?>">
+ <label class="label font-weight-light" for="product-item-comment-<?= $block->escapeHtmlAttr($item->getWishlistItemId()) ?>">
   <span><?= $block->escapeHtml(__('Comment')) ?></span>
  </label>
  
  <div class="control">
-  <textarea id="product-item-comment-<?= $block->escapeHtmlAttr($item->getWishlistItemId()) ?>" placeholder="<?= /* @noEscape */ $this->helper(\Magento\Wishlist\Helper\Data::class)->defaultCommentString() ?>" name="description[<?= $block->escapeHtmlAttr($item->getWishlistItemId()) ?>]" title="<?= $block->escapeHtmlAttr(__('Comment')) ?>" class="form-control product-item-comment" <?= $item->getProduct()->isSaleable() ? '' : 'disabled="disabled"' ?>><?= ($block->escapeHtml($item->getDescription())) ?></textarea>
+  <textarea id="product-item-comment-<?= $block->escapeHtmlAttr($item->getWishlistItemId()) ?>" placeholder="<?= /* @noEscape */ $this->helper(\Magento\Wishlist\Helper\Data::class)->defaultCommentString() ?>" name="description[<?= $block->escapeHtmlAttr($item->getWishlistItemId()) ?>]" title="<?= $block->escapeHtmlAttr(__('Comment')) ?>" class="product-item-comment form-control" <?= $item->getProduct()->isSaleable() ? '' : 'disabled="disabled"' ?>><?= ($block->escapeHtml($item->getDescription())) ?></textarea>
  </div>
  
 </div>

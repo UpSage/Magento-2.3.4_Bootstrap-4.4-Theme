@@ -20,7 +20,7 @@
   $widgetOptions = $this->helper(\Magento\Framework\Json\Helper\Data::class)->jsonEncode($widget['productListToolbarForm']);
  ?>
  
- <div class="row align-items-center border-top mx-0 toolbar toolbar-products-top" data-mage-init='{"productListToolbarForm":<?= /* @noEscape */ $widgetOptions ?>}'>
+ <div class="toolbar toolbar-products-top row align-items-center border-top mx-0" data-mage-init='{"productListToolbarForm":<?= /* @noEscape */ $widgetOptions ?>}'>
 
   <div class="col px-0">
 
@@ -40,7 +40,7 @@
 
  </div>
 
- <div class="row align-items-center border-top mx-0 toolbar toolbar-products-middle">
+ <div class="toolbar toolbar-products-middle row align-items-center border-top mx-0">
  
   <div class="col px-0">
    <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
@@ -52,7 +52,7 @@
 
  </div>
 
- <div class="row align-items-center toolbar toolbar-products-bottom">
+ <div class="toolbar toolbar-products-bottom row align-items-center">
  
   <div class="col-auto">
    <?= $block->getPagerHtml() ?>

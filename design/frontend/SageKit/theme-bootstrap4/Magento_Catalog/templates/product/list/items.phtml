@@ -175,23 +175,23 @@
  <?php if ($type == 'related' || $type == 'upsell') :?>
 
   <?php if ($type == 'related') :?>
-  <div class="<?= $block->escapeHtmlAttr($class) ?>" data-mage-init='{"relatedProducts":{"relatedCheckbox":".related.checkbox"}}' data-limit="<?= $block->escapeHtmlAttr($limit) ?>" data-shuffle="<?= /* @noEscape */ $shuffle ?>">
+  <div class="block <?= $block->escapeHtmlAttr($class) ?>" data-mage-init='{"relatedProducts":{"relatedCheckbox":".related.checkbox"}}' data-limit="<?= $block->escapeHtmlAttr($limit) ?>" data-shuffle="<?= /* @noEscape */ $shuffle ?>">
   <?php else :?>
-  <div class="<?= $block->escapeHtmlAttr($class) ?>" data-mage-init='{"upsellProducts":{}}' data-limit="<?= $block->escapeHtmlAttr($limit) ?>" data-shuffle="<?= /* @noEscape */ $shuffle ?>">
+  <div class="block <?= $block->escapeHtmlAttr($class) ?>>" data-mage-init='{"upsellProducts":{}}' data-limit="<?= $block->escapeHtmlAttr($limit) ?>" data-shuffle="<?= /* @noEscape */ $shuffle ?>">
   <?php endif; ?>
   
  <?php else :?>
- <div class="<?= $block->escapeHtmlAttr($class) ?>">
+ <div class="block <?= $block->escapeHtmlAttr($class) ?>">
  <?php endif; ?>
 
-  <h2 id="<?= $block->escapeHtmlAttr($class) ?>-heading" class="font-weight-light h5 mb-3 title">
-   <span><?= $block->escapeHtml($title) ?></span>
+  <h2 class="block-title title font-weight-light h5 mb-3">
+   <span id="block-<?= $block->escapeHtmlAttr($class) ?>-heading"><?= $block->escapeHtml($title) ?></span>
   </h2>
   
-  <div class="content" aria-labelledby="block-<?= $block->escapeHtmlAttr($class) ?>-heading">
+  <div class="block-content content" aria-labelledby="block-<?= $block->escapeHtmlAttr($class) ?>-heading">
 
    <?php if ($type == 'related' && $canItemsAddToCart) :?>
-   <div class="actions">
+   <div class="block-actions">
     <?= $block->escapeHtml(__('Check items to add to the cart or')) ?>
     <button type="button" class="action select" data-role="select-all">
      <span><?= $block->escapeHtml(__('select all')) ?></span>
@@ -200,7 +200,7 @@
    <?php endif; ?>
    
    <div class="products wrapper grid products-grid products-<?= $block->escapeHtmlAttr($type) ?>">
-    <ol class="row products list-unstyled mb-0 py-3 list items product-items">
+    <ol class="products list items product-items row list-unstyled mb-0 py-3">
 
     <?php foreach ($items as $_item) :?>
 
@@ -215,22 +215,22 @@
      <?php endif; ?>
      
      <?php if ($type == 'related' || $type == 'upsell') :?>
-     <li class="col-6 col-md-4 col-lg-3 pb-4 item product product-item" style="display: none;">
+     <li class="product product-item col-6 col-md-4 col-lg-3 pb-4 item" style="display: none;">
      <?php else :?>
-     <li class="col-6 col-md-4 col-lg-3 pb-4 item product product-item">
+     <li class="product product-item col-6 col-md-4 col-lg-3 pb-4 item">
      <?php endif; ?>
 
       <div class="product-item-info <?= /* @noEscape */ $available ?>">
 
        <?= /* @noEscape */ '<!-- ' . $image . '-->' ?>
 
-       <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="d-block overflow-hidden product photo product-item-photo">
+       <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product photo product-item-photo d-block overflow-hidden">
         <?= $block->getImage($_item, $image)->toHtml() ?>
        </a>
 
-       <div class="my-3 product details product-item-details">
+       <div class="product details product-item-details my-3">
 
-        <h2 class="font-weight-bold h6 mb-2 product name product-item-name">
+        <h2 class="product name product-item-name h6 font-weight-bold mb-2">
          <a class="product-item-link text-dark" title="<?= $block->escapeHtmlAttr($_item->getName()) ?>" href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>">
           <?= $block->escapeHtml($_item->getName()) ?>
          </a>
@@ -254,7 +254,7 @@
         <?php endif; ?>
         
         <?php if ($showAddTo || $showCart) :?>
-        <div class="d-flex align-items-center my-3 product actions product-item-actions">
+        <div class="product actions product-item-actions d-flex align-items-center my-3">
         
          <?php if ($showCart) :?>
          <div class="actions-primary">
@@ -262,7 +262,7 @@
           <?php if ($_item->isSaleable()) :?>
 
            <?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)) :?>
-           <button class="btn btn-primary mr-2 rounded-0 action tocart primary" data-mage-init='{"redirectUrl": {"url": "<?= $block->escapeUrl($block->getAddToCartUrl($_item)) ?>"}}' type="button" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>">
+           <button class="action tocart primary btn btn-primary mr-2 rounded-0" data-mage-init='{"redirectUrl": {"url": "<?= $block->escapeUrl($block->getAddToCartUrl($_item)) ?>"}}' type="button" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>">
             <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
            </button>
            <?php else :?>
@@ -274,7 +274,7 @@
             
            ?>
            
-           <button class="btn btn-primary mr-2 rounded-0 action tocart primary" data-post='<?= /* @noEscape */ $postData ?>' type="button" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>">
+           <button class="action tocart primary btn btn-primary mr-2 rounded-0" data-post='<?= /* @noEscape */ $postData ?>' type="button" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>">
             <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
            </button>
            

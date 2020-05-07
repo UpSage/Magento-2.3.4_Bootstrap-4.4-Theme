@@ -21,7 +21,7 @@
  <?php $block->getChildBlock('items')->setItems($block->getWishlistItems()); ?>
  <?= $block->getChildHtml('items') ?>
  <?php else : ?>
- <div class="alert alert-warning font-weight-light rounded-0 mb-3 message info empty" role="alert">
+ <div class="message info empty alert alert-warning font-weight-light rounded-0 mb-3" role="alert">
   <span><?= $block->escapeHtml(__('You have no items in your wish list.')) ?></span>
  </div>
  <?php endif ?>
@@ -31,7 +31,7 @@
    <?= $block->getChildHtml('control_buttons') ?>
   </div>
   <div class="secondary">
-   <a href="<?= $block->escapeUrl($block->getBackUrl()) ?>" class="text-dark font-weight-light d-none action back">
+   <a href="<?= $block->escapeUrl($block->getBackUrl()) ?>" class="action back text-dark font-weight-light d-none">
     <span><?= $block->escapeHtml(__('Back')) ?></span>
    </a>
   </div>
@@ -40,7 +40,7 @@
 </form>
 
 <script id="form-tmpl" type="text/x-magento-template">
- <form id="wishlist-hidden-form" method="post" action="<%- data.url %>" class="no-display">
+ <form id="wishlist-hidden-form" method="post" action="<%- data.url %>" class="d-none">
 
   <% if (data.qty) { %>
   <input name="qty" value="<%- data.qty %>">

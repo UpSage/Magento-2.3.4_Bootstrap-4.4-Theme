@@ -11,11 +11,11 @@
  <fieldset class="fieldset">
  
   <?= $block->getBlockHtml('formkey') ?>
-  <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-4 pb-3 border-bottom title">
+  <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-4 pb-3 border-bottom">
    <span><?= $block->escapeHtml(__('Subscription option')) ?></span>
   </h2>
   
-  <div class="form-group font-weight-light mb-2 field choice">
+  <div class="field choice form-group font-weight-light mb-2">
    <input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?= $block->escapeHtmlAttr(__('General Subscription')) ?>"<?php if ($block->getIsSubscribed()) : ?> checked="checked"<?php endif; ?> class="checkbox">
    <label for="subscription" class="label">
     <span><?= $block->escapeHtml(__('General Subscription')) ?></span>
@@ -28,12 +28,12 @@
  
  <div class="actions-toolbar">
   <div class="primary">
-   <button type="submit" title="<?= $block->escapeHtmlAttr(__('Save')) ?>" class="btn btn-primary font-weight-light mb-3 action save primary">
+   <button type="submit" title="<?= $block->escapeHtmlAttr(__('Save')) ?>" class="action save primary btn btn-primary font-weight-light mb-3">
     <span><?= $block->escapeHtml(__('Save')) ?></span>
    </button>
   </div>
   <div class="secondary">
-   <a class="text-dark font-weight-light action back" href="<?= $block->escapeUrl($block->getBackUrl()) ?>">
+   <a class="action back text-dark font-weight-light" href="<?= $block->escapeUrl($block->getBackUrl()) ?>">
     <span><?= $block->escapeHtml(__('Back')) ?></span>
    </a>
   </div>

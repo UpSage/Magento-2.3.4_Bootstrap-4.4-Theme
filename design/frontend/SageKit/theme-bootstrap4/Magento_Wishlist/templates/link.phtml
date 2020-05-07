@@ -7,7 +7,7 @@
 /* @var \Magento\Wishlist\Block\Link $block */
 ?>
 
-<li class="nav-item link wishlist" data-bind="scope: 'wishlist'">
+<li class="wishlist nav-item link" data-bind="scope: 'wishlist'">
  <a <?= /* @noEscape */ $block->getLinkAttributes() ?>><?= $block->escapeHtml($block->getLabel()) ?>
   <!-- ko if: wishlist().counter -->
   <span data-bind="text: wishlist().counter" class="counter qty"></span>

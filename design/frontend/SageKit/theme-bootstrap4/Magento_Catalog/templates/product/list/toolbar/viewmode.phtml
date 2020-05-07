@@ -19,7 +19,7 @@
  
  <?php if ($_modes && count($_modes) > 1) :?>
 
- <span class="text-hide modes-label" id="modes-label">
+ <span class="modes-label text-hide" id="modes-label">
   <?= $block->escapeHtml(__('View as:')) ?>
  </span>
  
@@ -27,7 +27,7 @@
  
   <?php if ($block->isModeActive($_code)) :?>
 
-  <span title="<?= $block->escapeHtmlAttr($_label) ?>" class="mx-1 bg-light d-inline-block border px-2 py-1 modes-mode active mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>" data-value="<?= $block->escapeHtmlAttr(strtolower($_code)) ?>">
+  <span title="<?= $block->escapeHtmlAttr($_label) ?>" class="modes-mode active mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?> bg-light d-inline-block border mx-1 px-2 py-1" data-value="<?= $block->escapeHtmlAttr(strtolower($_code)) ?>">
    <span class="text-hide d-none"><?= $block->escapeHtml($_label) ?></span>
    <?php if($block->escapeHtml($_label) == 'Grid') : ?>
     <i class="fas fa-th"></i>
@@ -38,7 +38,7 @@
   
   <?php else :?>
 
-  <a class="text-dark text-decoration-none mx-1 d-inline-block border px-2 py-1 modes-mode mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>" title="<?= $block->escapeHtmlAttr($_label) ?>" href="#" data-role="mode-switcher" data-value="<?= $block->escapeHtmlAttr(strtolower($_code)) ?>" id="mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>" aria-labelledby="modes-label mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>">
+  <a class="modes-mode mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?> text-dark text-decoration-none d-inline-block border mx-1 px-2 py-1" title="<?= $block->escapeHtmlAttr($_label) ?>" href="#" data-role="mode-switcher" data-value="<?= $block->escapeHtmlAttr(strtolower($_code)) ?>" id="mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>" aria-labelledby="modes-label mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>">
    <span class="text-hide d-none"><?= $block->escapeHtml($_label) ?></span>
    <?php if($block->escapeHtml($_label) == 'Grid') : ?>
     <i class="fas fa-th"></i>

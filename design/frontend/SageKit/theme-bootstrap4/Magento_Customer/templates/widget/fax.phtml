@@ -7,7 +7,7 @@
 /** @var \Magento\Customer\Block\Widget\Fax $block */
 ?>
 
-<div class="form-group font-weight-light field fax <?= $block->isRequired() ? 'required' : '' ?>">
+<div class="field fax <?= $block->isRequired() ? 'required' : '' ?> form-group font-weight-light">
 
  <label for="fax" class="label">
   <span><?= $block->escapeHtml(__('Fax')) ?></span>
@@ -15,7 +15,7 @@
  
  <div class="control">
   <?php $_validationClass = $block->escapeHtmlAttr($this->helper(\Magento\Customer\Helper\Address::class)->getAttributeValidationClass('fax')); ?>
-  <input type="text" name="fax" id="fax" value="<?= $block->escapeHtmlAttr($block->getFax()) ?>" title="<?= $block->escapeHtmlAttr(__('Fax')) ?>" class="form-control input-text <?= $_validationClass ?: '' ?>">
+  <input type="text" name="fax" id="fax" value="<?= $block->escapeHtmlAttr($block->getFax()) ?>" title="<?= $block->escapeHtmlAttr(__('Fax')) ?>" class="input-text <?= $_validationClass ?: '' ?> form-control">
  </div>
 
 </div>

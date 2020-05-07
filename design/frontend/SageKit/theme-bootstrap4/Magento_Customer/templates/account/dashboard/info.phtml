@@ -6,21 +6,21 @@
 
 /** @var \Magento\Customer\Block\Account\Dashboard\Info $block */
 ?>
-<div class="mb-4 dashboard-info">
+<div class="block block-dashboard-info mb-4">
 
- <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-4 pb-3 border-bottom title">
+ <h2 role="heading" aria-level="2" class="block-title font-weight-light h5 mb-4 pb-3 border-bottom">
   <span><?= $block->escapeHtml(__('Account Information')) ?></span>
  </h2>
 
- <div class="row content">
+ <div class="block-content row">
  
-  <div class="col-md-6 box box-information">
+  <div class="box box-information col-md-6">
 
-   <h3 class="font-weight-normal h6 box-title">
+   <h3 class="box-title font-weight-normal h6">
     <span><?= $block->escapeHtml(__('Contact Information')) ?></span>
    </h3>
    
-   <div class="font-weight-light mb-2 box-content">
+   <div class="box-content font-weight-light mb-2">
     <div>
      <?= $block->escapeHtml($block->getName()) ?>
     </div>
@@ -30,13 +30,13 @@
     <?= $block->getChildHtml('customer.account.dashboard.info.extra'); ?>
    </div>
    
-   <div class="mb-3 box-actions">
+   <div class="box-actions mb-3">
 
-    <a class="font-weight-light action edit" href="<?= $block->escapeUrl($block->getUrl('customer/account/edit')) ?>">
+    <a class="action edit font-weight-light" href="<?= $block->escapeUrl($block->getUrl('customer/account/edit')) ?>">
      <span><?= $block->escapeHtml(__('Edit')) ?></span>
     </a>
     
-    <a href="<?= $block->escapeUrl($block->getChangePasswordUrl()) ?>" class="font-weight-light ml-2 action change-password">
+    <a href="<?= $block->escapeUrl($block->getChangePasswordUrl()) ?>" class="action change-password font-weight-light ml-2">
      <?= $block->escapeHtml(__('Change Password')) ?>
     </a>
     
@@ -45,13 +45,13 @@
   </div>
   
   <?php if ($block->isNewsletterEnabled()) : ?>
-  <div class="col-md-6 box box-newsletter">
+  <div class="box box-newsletter col-md-6">
   
-   <h3 class="font-weight-normal h6 box-title">
+   <h3 class="box-title font-weight-normal h6">
     <span><?= $block->escapeHtml(__('Newsletters')) ?></span>
    </h3>
    
-   <div class="font-weight-light mb-2 box-content">
+   <div class="box-content font-weight-light mb-2">
     <p>
      <?php if ($block->getIsSubscribed()) : ?>
      <?= $block->escapeHtml(__('You are subscribed to "General Subscription".')) ?>
@@ -61,8 +61,8 @@
     </p>
    </div>
    
-   <div class="mb-3 box-actions">
-    <a class="font-weight-light action edit" href="<?= $block->escapeUrl($block->getUrl('newsletter/manage')) ?>"><span><?= $block->escapeHtml(__('Edit')) ?></span></a>
+   <div class="box-actions mb-3">
+    <a class="action edit font-weight-light" href="<?= $block->escapeUrl($block->getUrl('newsletter/manage')) ?>"><span><?= $block->escapeHtml(__('Edit')) ?></span></a>
    </div>
    
   </div>

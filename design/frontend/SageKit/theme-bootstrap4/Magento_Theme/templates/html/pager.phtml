@@ -39,50 +39,50 @@
    <?php if (!$block->isFirstPage()) : ?>
    <li class="page-item pages-item-previous">
     <?php $text = $block->getAnchorTextForPrevious() ? $block->getAnchorTextForPrevious() : ''; ?>
-    <a class="page-link rounded-0 text-dark font-weight-light <?= $block->escapeHtmlAttr($text ? 'link ' : 'action ') ?> previous" href="<?= $block->escapeUrl($block->getPreviousPageUrl()) ?>" title="<?= $block->escapeHtmlAttr($text ? $text : __('Previous')) ?>"><?= $block->escapeHtml($text ? $text : __('Previous')) ?></a>
+    <a class="<?= $block->escapeHtmlAttr($text ? 'link ' : 'action ') ?> previous page-link rounded-0 text-dark font-weight-light" href="<?= $block->escapeUrl($block->getPreviousPageUrl()) ?>" title="<?= $block->escapeHtmlAttr($text ? $text : __('Previous')) ?>"><?= $block->escapeHtml($text ? $text : __('Previous')) ?></a>
    </li>
    <?php endif;?>
 
    <?php if ($block->canShowFirst()) : ?>
    <li class="page-item">
-    <a class="page-link rounded-0 text-dark font-weight-light page first" href="<?= $block->escapeUrl($block->getFirstPageUrl()) ?>">1</a>
+    <a class="page first page-link rounded-0 text-dark font-weight-light" href="<?= $block->escapeUrl($block->getFirstPageUrl()) ?>">1</a>
    </li>
    <?php endif;?>
 
    <?php if ($block->canShowPreviousJump()) : ?>
    <li class="page-item">
-    <a class="page-link rounded-0 text-dark font-weight-light page previous jump" href="<?= $block->escapeUrl($block->getPreviousJumpUrl()) ?>">...</a>
+    <a class="page previous jump page-link rounded-0 text-dark font-weight-light" href="<?= $block->escapeUrl($block->getPreviousJumpUrl()) ?>">...</a>
    </li>
    <?php endif;?>
 
    <?php foreach ($block->getFramePages() as $_page) : ?>
     <?php if ($block->isPageCurrent($_page)) : ?>
     <li class="page-item disabled current">
-     <span class="page-link rounded-0 font-weight-bold bg-light page"><?= $block->escapeHtml($_page) ?></span>
+     <span class="page page-link rounded-0 font-weight-bold bg-light"><?= $block->escapeHtml($_page) ?></span>
     </li>
     <?php else : ?>
     <li class="page-item">
-     <a class="page-link rounded-0 text-dark font-weight-light page " href="<?= $block->escapeUrl($block->getPageUrl($_page)) ?>"><?= $block->escapeHtml($_page) ?></a>
+     <a class="page page-link rounded-0 text-dark font-weight-light" href="<?= $block->escapeUrl($block->getPageUrl($_page)) ?>"><?= $block->escapeHtml($_page) ?></a>
     </li>
     <?php endif;?>
    <?php endforeach;?>
 
    <?php if ($block->canShowNextJump()) : ?>
    <li class="page-item">
-    <a class="page-link rounded-0 text-dark font-weight-light page next jump" href="<?= $block->escapeUrl($block->getNextJumpUrl()) ?>">...</a>
+    <a class="page next jump page-link rounded-0 text-dark font-weight-light" href="<?= $block->escapeUrl($block->getNextJumpUrl()) ?>">...</a>
    </li>
    <?php endif;?>
 
    <?php if ($block->canShowLast()) : ?>
    <li class="page-item">
-    <a class="page-link rounded-0 text-dark font-weight-light page last" href="<?= $block->escapeUrl($block->getLastPageUrl()) ?>"><?= $block->escapeHtml($block->getLastPageNum()) ?></a>
+    <a class="page last page-link rounded-0 text-dark font-weight-light" href="<?= $block->escapeUrl($block->getLastPageUrl()) ?>"><?= $block->escapeHtml($block->getLastPageNum()) ?></a>
    </li>
    <?php endif;?>
 
    <?php if (!$block->isLastPage()) : ?>
    <li class="page-item pages-item-next">
     <?php $text = $block->getAnchorTextForNext() ? $block->getAnchorTextForNext() : '';?>
-    <a class="page-link rounded-0 text-dark font-weight-light <?= /* @noEscape */ $text ? 'link ' : 'action ' ?> next" href="<?= $block->escapeUrl($block->getNextPageUrl()) ?>" title="<?= $block->escapeHtmlAttr($text ? $text : __('Next')) ?>">
+    <a class="<?= /* @noEscape */ $text ? 'link ' : 'action ' ?> next page-link rounded-0 text-dark font-weight-light" href="<?= $block->escapeUrl($block->getNextPageUrl()) ?>" title="<?= $block->escapeHtmlAttr($text ? $text : __('Next')) ?>">
      <?= $block->escapeHtml($text ? $text : __('Next')) ?>
     </a>
    </li>
@@ -100,7 +100,7 @@
    <span class="limiter-label font-weight-normal"><?= $block->escapeHtml(__('Show')) ?></span>
 
    <div class="ml-2">
-    <select id="limiter" data-mage-init='{"redirectUrl": {"event":"change"}}' class="form-control font-weight-light p-1 limiter-options">
+    <select id="limiter" data-mage-init='{"redirectUrl": {"event":"change"}}' class="limiter-options form-control font-weight-light p-1">
      <?php foreach ($block->getAvailableLimit() as $_key => $_limit) : ?>
      <option value="<?= $block->escapeHtmlAttr($block->getLimitUrl($_key)) ?>" <?php if ($block->isLimitCurrent($_key)) : ?>selected="selected"<?php endif ?>>
      <?= $block->escapeHtml($_limit) ?>
@@ -109,7 +109,7 @@
     </select>
    </div>
 
-   <div class="font-weight-light ml-2 limiter-text"><?= $block->escapeHtml(__('per page')) ?></div>
+   <div class="limiter-text font-weight-light ml-2"><?= $block->escapeHtml(__('per page')) ?></div>
 
   </div>
 

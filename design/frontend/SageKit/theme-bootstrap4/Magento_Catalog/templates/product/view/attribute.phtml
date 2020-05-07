@@ -46,7 +46,7 @@ if ($_attributeType && $_attributeType == 'text') {
 ?>
 
 <?php if ($_attributeValue) :?>
-<div class="font-weight-light product attribute <?= $block->escapeHtmlAttr($_className) ?>">
+<div class="product attribute <?= $block->escapeHtmlAttr($_className) ?> font-weight-light">
  <?php if ($renderLabel) :?>
  <strong class="type"><?= $block->escapeHtml($_attributeLabel) ?></strong>
  <?php endif; ?>

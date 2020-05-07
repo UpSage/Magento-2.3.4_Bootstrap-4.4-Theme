@@ -7,15 +7,21 @@
 /** @var \Magento\Newsletter\Block\Subscribe $block */
 ?>
 
-<div class="newsletter mb-4 my-md-4">
+<div class="block newsletter mb-4 my-md-4">
 
  <form class="form subscribe d-flex" novalidate action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>" method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}' id="newsletter-validate-detail">
  
-  <input name="email" type="email" id="newsletter" class="form-control font-weight-light d-inline-block mr-2" placeholder="<?= $block->escapeHtmlAttr(__('Enter your email address')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}" />
-  
-  <button class="subscribe btn btn-secondary font-weight-light d-inline-block my-0" title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>" type="submit" aria-label="Subscribe">
-   <?= $block->escapeHtml(__('Subscribe')) ?>
-  </button>
+  <div class="field newsletter w-100 d-inline-block mr-2">
+   <div class="control">
+    <input name="email" type="email" id="newsletter" placeholder="<?= $block->escapeHtmlAttr(__('Enter your email address')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}" class="form-control font-weight-light" />
+   </div>
+  </div>
+
+  <div class="actions d-inline-block my-0">
+   <button class="action subscribe primary btn btn-secondary font-weight-light" title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>" type="submit" aria-label="Subscribe">
+    <span><?= $block->escapeHtml(__('Subscribe')) ?></span>
+   </button>
+  </div>
    
  </form>
 

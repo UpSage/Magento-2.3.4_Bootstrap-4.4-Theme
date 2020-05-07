@@ -13,37 +13,39 @@ $wishlistHelper = $this->helper(\Magento\Wishlist\Helper\Data::class);
 ?>
 
 <?php if ($wishlistHelper->isAllow()) : ?>
-<div class="wishlist" data-bind="scope: 'wishlist'">
+<div class="block block-wishlist" data-bind="scope: 'wishlist'">
 
- <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-4 title">
+ <h2 role="heading" aria-level="2" class="block-title font-weight-light h5 mb-4">
   <span aria-level="2"><?= $block->escapeHtml($block->getTitle()) ?></span>
   <!-- ko if: wishlist().counter -->
   <span data-bind="text: '(' + wishlist().counter + ')'" class="counter"></span>
   <!-- /ko -->
  </h2>
 
- <div class="content">
+ <div class="block-content">
+
+  <span class="subtitle d-none"><?= $block->escapeHtml(__('Last Added Items')) ?></span>
  
   <!-- ko if: wishlist().counter -->
-  <ol class="list-unstyled product-items d-none" id="wishlist-sidebar" data-bind="foreach: wishlist().items, css: {'d-none': null}">
+  <ol class="product-items list-unstyled d-none" id="wishlist-sidebar" data-bind="foreach: wishlist().items, css: {'d-none': null}">
    <li class="product-item">
   
-    <div class="row mb-3 product-item-info">
+    <div class="product-item-info row mb-3">
 
      <div class="col-auto">
-      <a class="d-block product-item-photo" data-bind="attr: { href: product_url, title: product_name }">
+      <a class="product-item-photo d-block" data-bind="attr: { href: product_url, title: product_name }">
       <!-- ko template: {name: $data.image.template, data: $data.image} --><!-- /ko -->
       </a>
      </div>
     
-     <div class="col product-item-details">
+     <div class="product-item-details col">
 
       <div class="d-flex">
 
        <div class="mr-2">
        
         <span class="product-item-name">
-         <a data-bind="attr: { href: product_url }" class="text-dark font-weight-light mb-1 product-item-link">
+         <a data-bind="attr: { href: product_url }" class="product-item-link text-dark font-weight-light mb-1">
           <span data-bind="html: product_name"></span>
          </a>
         </span>
@@ -54,13 +56,13 @@ $wishlistHelper = $this->helper(\Magento\Wishlist\Helper\Data::class);
         <div class="actions-primary">
         
          <!-- ko if: product_has_required_options -->
-         <a href="#" data-bind="attr: {'data-post': add_to_cart_params}" class="btn btn-primary rounded-0 font-weight-light action tocart primary">
+         <a href="#" data-bind="attr: {'data-post': add_to_cart_params}" class="action tocart primary btn btn-primary rounded-0 font-weight-light">
           <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
          </a>
          <!-- /ko -->
          
          <!-- ko ifnot: product_has_required_options -->
-         <button type="button" class="btn btn-primary rounded-0 font-weight-light action tocart primary" data-bind="attr: {'data-post': add_to_cart_params}">
+         <button type="button" class="action tocart primary btn btn-primary rounded-0 font-weight-light" data-bind="attr: {'data-post': add_to_cart_params}">
           <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
          </button>
          <!-- /ko -->
@@ -70,8 +72,8 @@ $wishlistHelper = $this->helper(\Magento\Wishlist\Helper\Data::class);
 
        </div>
 
-       <div class="ml-auto actions-secondary">
-        <a href="#" data-bind="attr: {'data-post': delete_item_params}" title="<?= $block->escapeHtmlAttr(__('Remove')) ?>" class="text-dark font-weight-light delete">
+       <div class="actions-secondary ml-auto">
+        <a href="#" data-bind="attr: {'data-post': delete_item_params}" title="<?= $block->escapeHtmlAttr(__('Remove')) ?>" class="btn-remove action delete text-dark font-weight-light">
          <span class="d-none"><?= $block->escapeHtml(__('Remove')) ?></span>
          <i class="fas fa-times"></i>
         </a>

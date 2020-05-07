@@ -11,6 +11,6 @@ $item = $block->getItem();
 $product = $item->getProduct();
 ?>
 
-<a class="d-block overflow-hidden mb-3 product-item-photo" tabindex="-1" href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= $block->escapeHtmlAttr($product->getName()) ?>">
+<a class="product-item-photo d-block overflow-hidden mb-3" tabindex="-1" href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= $block->escapeHtmlAttr($product->getName()) ?>">
  <?= $block->getImage($block->getProductForThumbnail($item), 'wishlist_thumbnail')->toHtml() ?>
 </a>

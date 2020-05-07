@@ -6,7 +6,7 @@
 
 /** @var $block Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare */
 ?>
-<a href="#" class="mr-2 text-decoration-none text-dark action tocompare" title="<?= $block->escapeHtmlAttr(__('Add to Compare')) ?>" aria-label="<?= $block->escapeHtmlAttr(__('Add to Compare')) ?>" data-post='<?= /* @noEscape */ $block->getCompareHelper()->getPostDataParams($block->getProduct()) ?>' role="button">
+<a href="#" class="action tocompare mr-2 text-decoration-none text-dark" title="<?= $block->escapeHtmlAttr(__('Add to Compare')) ?>" aria-label="<?= $block->escapeHtmlAttr(__('Add to Compare')) ?>" data-post='<?= /* @noEscape */ $block->getCompareHelper()->getPostDataParams($block->getProduct()) ?>' role="button">
  <span class="text-hide"><?= $block->escapeHtml(__('Add to Compare')) ?></span>
  <i class="fas fa-chart-bar"></i>
 </a>

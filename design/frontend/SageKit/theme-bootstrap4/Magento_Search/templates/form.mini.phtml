@@ -12,22 +12,31 @@
 $helper = $this->helper(\Magento\Search\Helper\Data::class);
 ?>
 
-<form class="form minisearch my-2 my-md-0 d-flex" id="search_mini_form" action="<?= $block->escapeUrl($helper->getResultUrl()) ?>" method="get">
+<div class="block block-search">
 
- <input
-  id="search"
-  class="form-control d-inline-block font-weight-light"
-  type="text"
-  name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>"
-  value="<?= $block->escapeHtmlAttr($helper->getEscapedQueryText()) ?>"
-  placeholder="<?= $block->escapeHtmlAttr(__('Search entire store here...')) ?>"
-  maxlength="<?= $block->escapeHtmlAttr($helper->getMaxQueryLength()) ?>">
+ <div class="block block-title d-none">
+  <span><?= $block->escapeHtml(__('Search')) ?></span>
+ </div>
 
- <button type="submit" title="<?= $block->escapeHtmlAttr(__('Search')) ?>" class="search btn btn-transparent text-dark font-weight-light d-inline-block my-0" aria-label="Search">
-  <span class="text-hide d-none">
-   <?= $block->escapeHtml(__('Search')) ?>
-  </span>
-  <i class="fas fa-search"></i>
- </button>
+ <div class="block block-content">
+ 
+  <form class="form minisearch my-2 my-md-0 d-flex" id="search_mini_form" action="<?= $block->escapeUrl($helper->getResultUrl()) ?>" method="get">
 
-</form>
+   <div class="control w-100 d-inline-block">
+    <input id="search" class="input-text form-control font-weight-light" type="text" name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>" value="<?= $block->escapeHtmlAttr($helper->getEscapedQueryText()) ?>" placeholder="<?= $block->escapeHtmlAttr(__('Search entire store here...')) ?>" maxlength="<?= $block->escapeHtmlAttr($helper->getMaxQueryLength()) ?>">
+   </div>
+
+   <div class="actions d-inline-block my-0">
+    <button type="submit" title="<?= $block->escapeHtmlAttr(__('Search')) ?>" class="action search btn btn-transparent text-dark font-weight-light d-inline-block my-0" aria-label="Search">
+     <span class="text-hide d-none">
+      <?= $block->escapeHtml(__('Search')) ?>
+     </span>
+     <i class="fas fa-search"></i>
+    </button>
+   </div>
+   
+  </form>
+
+ </div>
+
+</div>

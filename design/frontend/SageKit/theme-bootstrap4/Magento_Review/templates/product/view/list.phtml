@@ -10,27 +10,27 @@ $_items = $block->getReviewsCollection()->getItems();
 $format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
 ?>
 <?php if (count($_items)) : ?>
-<div class="review-list" id="customer-reviews">
+<div class="block review-list" id="customer-reviews">
  
  <?php if (!$block->getHideTitle()) : ?>
- <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-2 title">
+ <h2 role="heading" aria-level="2" class="block-title font-weight-light h5 mb-2">
   <span><?= $block->escapeHtml(__('Customer Reviews')) ?></span>
  </h2>
  <?php endif ?>
 
- <div class="review-list-content">
+ <div class="block-content">
 
   <div class="toolbar review-toolbar d-none">
    <?= $block->getChildHtml('toolbar') ?>
   </div>
 
   <div class="rounded-0 border-0 card">
-   <ol class="list-group list-group-flush mb-4 items review-items">
+   <ol class="items review-items list-group list-group-flush mb-4">
    
     <?php foreach ($_items as $_review) : ?>
-    <li class="list-group-item rounded-0 border-bottom px-0 py-2 item review-item" itemscope itemprop="review" itemtype="http://schema.org/Review">
+    <li class="item review-item list-group-item rounded-0 border-bottom px-0 py-2" itemscope itemprop="review" itemtype="http://schema.org/Review">
 
-     <h3 class="h6 mt-2 mb-3 review-title" itemprop="name">
+     <h3 class="review-title h6 mt-2 mb-3" itemprop="name">
       <?= $block->escapeHtml($_review->getTitle()) ?>
      </h3>
 
@@ -42,7 +42,7 @@ $format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
      
         <?php foreach ($_review->getRatingVotes() as $_vote) : ?>
         <div class="rating-summary item" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-         <span class="label rating-label">
+         <span class="rating-label label">
           <span><?= $block->escapeHtml($_vote->getRatingCode()) ?></span>
          </span>
          <div class="rating-result" title="<?= $block->escapeHtmlAttr($_vote->getPercent()) ?>%">
@@ -61,18 +61,18 @@ $format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
 
       <div class="col px-0">
        
-       <div class="font-weight-light mb-3 review-content" itemprop="description">
+       <div class="review-content font-weight-light mb-3" itemprop="description">
         <?= /* @noEscape */ nl2br($block->escapeHtml($_review->getDetail())) ?>
        </div>
        
-       <div class="font-weight-light review-details">
+       <div class="review-details font-weight-light">
         <p class="review-author mb-0">
          <span class="review-details-label">
           <?= $block->escapeHtml(__('Review by')) ?>
          </span>
-         <strong class="font-weight-normal review-details-value" itemprop="author">
+         <span class="review-details-value font-weight-normal" itemprop="author">
           <?= $block->escapeHtml($_review->getNickname()) ?>
-         </strong>
+         </span>
         </p>
         <p class="review-date">
          <span class="review-details-label">

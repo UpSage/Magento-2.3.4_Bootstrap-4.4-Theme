@@ -7,46 +7,46 @@
 /** @var \Magento\Customer\Block\Form\Login $block */
 ?>
 
-<div class="customer-login">
+<div class="block block-customer-login">
     
- <h2 role="heading" aria-level="2" id="customer-heading" class="font-weight-light h5 mb-4 pb-3 border-bottom title">
-  <span aria-level="2"><?= $block->escapeHtml(__('Registered Customers')) ?></span>
+ <h2 role="heading" aria-level="2" class="block-title font-weight-light h5 mb-4 pb-3 border-bottom">
+  <span id="block-customer-login-heading" aria-level="2"><?= $block->escapeHtml(__('Registered Customers')) ?></span>
  </h2>
  
- <div class="font-weight-light content" aria-labelledby="customer-login-heading">
+ <div class="block-content font-weight-light" aria-labelledby="block-customer-login-heading">
 
-  <form class="mb-4 form form-login" action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" id="login-form" data-mage-init='{"validation":{}}'>
+  <form class="form form-login mb-4" action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" id="login-form" data-mage-init='{"validation":{}}'>
   
    <?= $block->getBlockHtml('formkey') ?>
 
    <fieldset class="fieldset login" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
 
     <div class="form-row">
-     <div class="col-12 form-group field note">
+     <div class="field note col-12 form-group">
       <?= $block->escapeHtml(__('If you have an account, sign in with your email address.')) ?>
      </div>
     </div>
 
     <div class="form-row">
-     <div class="col-lg-9 form-group field email required">
+     <div class="field email required col-lg-9 form-group">
       <label class="label" for="email">
        <span><?= $block->escapeHtml(__('Email')) ?></span>
       </label>
       <div class="control">
-       <input name="login[username]" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="form-control input-text" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
+       <input name="login[username]" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text form-control" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
       </div>
      </div>
     </div>
 
     <div class="form-row">
-     <div class="col-lg-9 form-group field password required">
+     <div class="field password required col-lg-9 form-group">
 
       <label for="pass" class="label">
        <span><?= $block->escapeHtml(__('Password')) ?></span>
       </label>
      
       <div class="control">
-       <input name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="form-control input-text" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
+       <input name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="input-text form-control" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
       </div>
 
      </div>
@@ -62,12 +62,12 @@
 
    <div class="actions-toolbar">
     <div class="primary">
-     <button type="submit" class="btn btn-primary font-weight-light mb-3 action login primary" name="send" id="send2">
+     <button type="submit" class="action login primary btn btn-primary font-weight-light mb-3" name="send" id="send2">
       <span><?= $block->escapeHtml(__('Sign In')) ?></span>
      </button>
     </div>
     <div class="secondary">
-     <a class="text-dark font-weight-light action remind" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>">
+     <a class="action remind text-dark font-weight-light" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>">
       <span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span>
      </a>
     </div>

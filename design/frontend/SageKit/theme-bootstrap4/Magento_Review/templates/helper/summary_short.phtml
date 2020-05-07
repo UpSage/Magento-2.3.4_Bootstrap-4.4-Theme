@@ -13,14 +13,14 @@ $urlForm = $block->getReviewsUrl() . '#review-form';
 <?php if ($block->isReviewEnabled() && $block->getReviewsCount()) : ?>
 
 <?php $rating = $block->getRatingSummary(); ?>
-<div class="mb-2 d-flex align-items-center product-reviews-summary short<?= !$rating ? ' no-rating' : '' ?>">
+<div class="product-reviews-summary short<?= !$rating ? ' no-rating' : '' ?> mb-2 d-flex align-items-center">
  
  <?php if ($rating) :?>
  <div class="rating-summary">
-  <span class="text-hide label">
+  <span class="label text-hide">
    <span><?= $block->escapeHtml(__('Rating')) ?>:</span>
   </span>
-  <div class="w-auto d-inline-block position-relative mr-1 rating-result" title="<?= $block->escapeHtmlAttr($rating) ?>%">
+  <div class="rating-result w-auto d-inline-block position-relative mr-1" title="<?= $block->escapeHtmlAttr($rating) ?>%">
    <div class="d-flex position-absolute overflow-hidden" style="width:<?= $block->escapeHtmlAttr($rating) ?>%">
     <i class="fas fa-star text-warning"></i>
     <i class="fas fa-star text-warning"></i>
@@ -40,7 +40,7 @@ $urlForm = $block->getReviewsUrl() . '#review-form';
  <?php endif;?>
  
  <div class="reviews-actions">
-  <a class="mx-1 action view" href="<?= $block->escapeUrl($url) ?>">
+  <a class="action view font-weight-light mx-1" href="<?= $block->escapeUrl($url) ?>">
    <small><?= $block->escapeHtml($block->getReviewsCount()) ?> <?= ($block->getReviewsCount() == 1) ? $block->escapeHtml(__('Review')) : $block->escapeHtml(__('Reviews')) ?></small>
   </a>
  </div>
@@ -48,9 +48,9 @@ $urlForm = $block->getReviewsUrl() . '#review-form';
 </div>
 
 <?php elseif ($block->isReviewEnabled() && $block->getDisplayIfEmpty()) : ?>
-<div class="mb-2 product-reviews-summary short empty">
+<div class="product-reviews-summary short empty mb-2">
  <div class="reviews-actions">
-  <a class="action add" href="<?= $block->escapeUrl($urlForm) ?>">
+  <a class="action add font-weight-light" href="<?= $block->escapeUrl($urlForm) ?>">
    <?= $block->escapeHtml(__('Be the first to review this product')) ?>
   </a>
  </div>

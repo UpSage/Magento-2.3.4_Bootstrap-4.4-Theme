@@ -15,17 +15,17 @@
 
 <div class="d-flex mb-3">
 
- <a href="#" class="text-dark ml-auto d-inline-block action print hidden-print" title="<?= $block->escapeHtmlAttr(__('Print This Page')) ?>">
+ <a href="#" class="action print hidden-print text-dark ml-auto d-inline-block" title="<?= $block->escapeHtmlAttr(__('Print This Page')) ?>">
   <span><?= $block->escapeHtml(__('Print This Page')) ?></span>
  </a>
 
 </div>
 
-<div class="table-responsive table-wrapper comparison">
+<div class="table-wrapper comparison table-responsive">
 
- <table class="table-bordered data table table-comparison" id="product-comparison" data-mage-init='{"compareList":{ "windowPrintSelector":".action.print", "productsInRow":"5", "selectors":{ "productAddToCartSelector":"button.action.tocart"} }}'>
+ <table class="data table table-comparison table-bordered" id="product-comparison" data-mage-init='{"compareList":{ "windowPrintSelector":".action.print", "productsInRow":"5", "selectors":{ "productAddToCartSelector":"button.action.tocart"} }}'>
 
-  <caption class="text-hide table-caption"><?= $block->escapeHtml(__('Compare Products')) ?></caption>
+  <caption class="table-caption text-hide"><?= $block->escapeHtml(__('Compare Products')) ?></caption>
 
   <thead>
    <tr>
@@ -34,14 +34,14 @@
 
     <?php foreach ($block->getItems() as $item) :?>
     <?php if ($index++ == 0) :?>
-    <th scope="row" class="font-weight-normal cell label remove">
+    <th scope="row" class="cell label remove font-weight-normal">
      <span class="text-hide"><?= $block->escapeHtml(__('Remove Product')) ?></span>
     </th>
     <?php endif; ?>
     
-    <td class="font-weight-light text-right cell remove product hidden-print">
+    <td class="cell remove product hidden-print font-weight-light text-right">
      <?php $compareHelper = $this->helper(Magento\Catalog\Helper\Product\Compare::class);?>
-     <a href="#" data-post='<?= /* @noEscape */ $compareHelper->getPostDataRemove($item) ?>' class="text-dark action delete" title="<?= $block->escapeHtmlAttr(__('Remove Product')) ?>">
+     <a href="#" data-post='<?= /* @noEscape */ $compareHelper->getPostDataRemove($item) ?>' class="action delete text-dark" title="<?= $block->escapeHtmlAttr(__('Remove Product')) ?>">
       <span><?= $block->escapeHtml(__('Remove Product')) ?></span>
      </a>
     </td>
@@ -59,18 +59,18 @@
    
     <?php foreach ($block->getItems() as $item) :?>
     <?php if ($index++ == 0) :?>
-    <th scope="row" class="font-weight-normal cell label product">
+    <th scope="row" class="cell label product font-weight-normal">
      <span><?= $block->escapeHtml(__('Product')) ?></span>
     </th>
     <?php endif; ?>
     
-    <td data-th="<?= $block->escapeHtmlAttr(__('Product')) ?>" class="font-weight-light cell product info">
+    <td data-th="<?= $block->escapeHtmlAttr(__('Product')) ?>" class="cell product info font-weight-light">
 
-     <a class="mb-3 d-inline-block product-item-photo" href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= /* @noEscape */ $block->stripTags($item->getName(), null, true) ?>">
+     <a class="product-item-photo mb-3 d-inline-block" href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= /* @noEscape */ $block->stripTags($item->getName(), null, true) ?>">
       <?= $block->getImage($item, 'product_comparison_list')->toHtml() ?>
      </a>
 
-     <h2 class="font-weight-bold h6 mb-2 product-name product-item-name">
+     <h2 class="product-name product-item-name font-weight-bold h6 mb-2">
       <a href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= /* @noEscape */ $block->stripTags($item->getName(), null, true) ?>" class="product-item-link text-dark">
        <?= /* @noEscape */ $helper->productAttribute($item, $item->getName(), 'name') ?>
       </a>
@@ -79,7 +79,7 @@
      <?= $block->getReviewsSummaryHtml($item, 'short') ?>
 
      <?= /* @noEscape */ $block->getProductPrice($item, '-compare-list-top') ?>
-     <div class="d-flex align-items-center my-3 product-item-actions hidden-print">
+     <div class="product-item-actions hidden-print d-flex align-items-center my-3">
 
       <div class="actions-primary">
 
@@ -131,13 +131,13 @@
    <tr>
     <?php foreach ($block->getItems() as $item) :?>
     <?php if ($index++ == 0) :?>
-    <th scope="row" class="font-weight-normal cell label">
+    <th scope="row" class="cell label font-weight-normal">
      <span class="attribute label">
       <?= $block->escapeHtml($attribute->getStoreLabel() ? $attribute->getStoreLabel() : __($attribute->getFrontendLabel())) ?>
      </span>
     </th>
     <?php endif; ?>
-    <td class="font-weight-light cell product attribute">
+    <td class="cell product attribute font-weight-light">
      <div class="attribute value">
       <?php switch ($attribute->getAttributeCode()) {
        case "price": ?>

@@ -10,7 +10,7 @@
   
   <referenceContainer name="sidebar.main">
 
-   <container name="customer_account_navigation_container" htmlTag="div" htmlClass="bg-light mb-4 px-3 py-2 dashboard-nav" before="-">
+   <container name="customer_account_navigation_container" htmlTag="div" htmlClass="dashboard-nav bg-light mb-4 px-3 py-2" before="-">
 
     <referenceBlock name="customer_account_navigation">
 

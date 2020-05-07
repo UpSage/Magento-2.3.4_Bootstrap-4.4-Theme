@@ -7,13 +7,13 @@
 /** @var \Magento\Review\Block\Form $block */
 ?>
 
-<div class="review-add">
+<div class="block review-add">
 
- <h2 role="heading" class="font-weight-light h5 mb-3 review-add-title">
+ <h2 role="heading" class="block-title font-weight-light h5 mb-3">
   <span><?= $block->escapeHtml(__('Write Your Own Review')) ?></span>
  </h2>
  
- <div class="review-add-content">
+ <div class="block-content">
  
   <?php if ($block->getAllowWriteReviewFlag()) : ?>
   <form action="<?= $block->escapeUrl($block->getAction()) ?>" class="review-form" method="post" id="review-form" data-role="product-review-form" data-bind="scope: 'review-form'">
@@ -23,7 +23,7 @@
    
    <fieldset class="fieldset review-fieldset" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
 
-    <legend class="font-weight-light d-none legend review-legend">
+    <legend class="legend review-legend font-weight-light d-none">
      <span><?= $block->escapeHtml(__("You're reviewing:")) ?></span>
      <strong><?= $block->escapeHtml($block->getProductInfo()->getName()) ?></strong>
     </legend>
@@ -35,9 +35,9 @@
 
       <span id="input-message-box"></span>
 
-      <fieldset class="form-group field required review-field-ratings">
+      <fieldset class="field required review-field-ratings form-group">
       
-       <legend class="font-weight-light d-none label">
+       <legend class="label font-weight-light d-none">
         <span><?= $block->escapeHtml(__('Your Rating')) ?></span>
        </legend>
        
@@ -75,22 +75,22 @@
     <div class="form-row">
      <div class="col-md-8 col-lg-6">
 
-      <div class="form-group field review-field-nickname required">
-       <label for="nickname_field" class="d-block label">
+      <div class="field review-field-nickname required form-group">
+       <label for="nickname_field" class="label d-block">
         <span><?= $block->escapeHtml(__('Nickname')) ?></span>
        </label>
-       <input type="text" name="nickname" id="nickname_field" class="form-control input-text" data-validate="{required:true}" data-bind="value: nickname()" />
+       <input type="text" name="nickname" id="nickname_field" class="input-text form-control" data-validate="{required:true}" data-bind="value: nickname()" />
       </div>
       
       <div class="form-group field review-field-summary required">
-       <label for="summary_field" class="d-block label">
+       <label for="summary_field" class="label d-block">
         <span><?= $block->escapeHtml(__('Summary')) ?></span>
        </label>
-       <input type="text" name="title" id="summary_field" class="form-control input-text" data-validate="{required:true}" data-bind="value: review().title" />
+       <input type="text" name="title" id="summary_field" class="input-text form-control" data-validate="{required:true}" data-bind="value: review().title" />
       </div>
 
-      <div class="form-group field review-field-text required">
-       <label for="review_field" class="d-block label">
+      <div class="field review-field-text required form-group">
+       <label for="review_field" class="label d-block">
         <span><?= $block->escapeHtml(__('Review')) ?></span>
        </label>
        <textarea name="detail" class="form-control" id="review_field" cols="5" rows="3" data-validate="{required:true}" data-bind="value: review().detail"></textarea>
@@ -99,9 +99,9 @@
      </div>
     </div>
 
-    <div class="form-group actions-toolbar review-form-actions">
+    <div class="actions-toolbar review-form-actions form-group">
      <div class="primary actions-primary">
-      <button type="submit" class="btn btn-secondary action submit primary">
+      <button type="submit" class="action submit primary btn btn-secondary">
        <span><?= $block->escapeHtml(__('Submit Review')) ?></span>
       </button>
      </div>

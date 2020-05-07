@@ -24,10 +24,10 @@
   <tbody>
    <?php foreach ($_additional as $_data) :?>
    <tr>
-    <th class="col-auto font-weight-normal p-2 label" scope="row">
+    <th class="label col-auto font-weight-normal p-2" scope="row">
      <?= $block->escapeHtml($_data['label']) ?>
     </th>
-    <td class="col font-weight-light p-2 data" data-th="<?= $block->escapeHtmlAttr($_data['label']) ?>">
+    <td class="data col font-weight-light p-2" data-th="<?= $block->escapeHtmlAttr($_data['label']) ?>">
      <?= /* @noEscape */ $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?>
     </td>
    </tr>

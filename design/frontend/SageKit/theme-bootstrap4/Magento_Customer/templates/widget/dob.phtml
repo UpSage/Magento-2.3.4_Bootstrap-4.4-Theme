@@ -27,7 +27,7 @@ $fieldCssClass = 'field date field-' . $block->getHtmlId();
 $fieldCssClass .= $block->isRequired() ? ' required' : '';
 
 ?>
-<div class="form-group font-weight-light <?= $block->escapeHtmlAttr($fieldCssClass) ?>">
+<div class="<?= $block->escapeHtmlAttr($fieldCssClass) ?> form-group font-weight-light">
 
  <label class="label" for="<?= /* @noEscape */ $block->getHtmlId() ?>">
   <span><?= $block->escapeHtml($block->getStoreLabel('dob')) ?></span>

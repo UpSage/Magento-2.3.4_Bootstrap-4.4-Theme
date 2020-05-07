@@ -8,43 +8,43 @@
 
 /* @var $block \Magento\Framework\View\Element\Template */
 ?>
-<div class="compare" data-bind="scope: 'compareProducts'" data-role="compare-products-sidebar">
+<div class="block block-compare" data-bind="scope: 'compareProducts'" data-role="compare-products-sidebar">
 
- <h2 role="heading" aria-level="2" class="font-weight-light h5 mb-4 title">
-  <span id="compare-heading" aria-level="2"><?= $block->escapeHtml(__('Compare Products')) ?></span>
+ <h2 role="heading" aria-level="2" class="block-title font-weight-light h5 mb-4">
+  <span id="block-compare-heading" aria-level="2"><?= $block->escapeHtml(__('Compare Products')) ?></span>
   <span class="counter qty d-none" data-bind="text: '(' + compareProducts().countCaption + ')', css: {'d-none': !compareProducts().count}"></span>
  </h2>
  
  <!-- ko if: compareProducts().count -->
- <div class="content d-none" aria-labelledby="compare-heading" data-bind="css: {'d-none': !compareProducts().count}">
+ <div class="block-content d-none" aria-labelledby="block-compare-heading" data-bind="css: {'d-none': !compareProducts().count}">
  
-  <ol id="compare-items" class="nav d-inline-block product-items product-items-names" data-bind="foreach: compareProducts().items">
-   <li class="nav-item mb-2 product-item">
+  <ol id="compare-items" class="product-items product-items-names nav d-inline-block" data-bind="foreach: compareProducts().items">
+   <li class="product-item nav-item mb-2">
 
     <input type="hidden" class="compare-item-id" data-bind="value: id"/>
 
-    <span class="d-inline-block mr-1 product-item-name">
+    <span class="product-item-name d-inline-block mr-1">
      <a data-bind="attr: {href: product_url}, html: name" class="text-dark font-weight-light mb-1 product-item-link"></a>
     </span>
     
-    <a href="#" data-bind="attr: {'data-post': remove_url}" title="<?= $block->escapeHtmlAttr(__('Remove')) ?>" class="text-dark font-weight-light delete">
-     <span class="d-none"><?= $block->escapeHtml(__('Remove')) ?></span>
+    <a href="#" data-bind="attr: {'data-post': remove_url}" title="<?= $block->escapeHtmlAttr(__('Remove')) ?>" class="delete text-dark font-weight-light">
+     <span class="text-hide"><?= $block->escapeHtml(__('Remove')) ?></span>
      <i class="fas fa-times"></i>
     </a>
 
    </li>
   </ol>
   
-  <div class="d-flex align-items-center mt-3 mb-4 actions-toolbar">
+  <div class="actions-toolbar d-flex align-items-center mt-3 mb-4">
 
    <div class="primary">
-    <a data-bind="attr: {'href': compareProducts().listUrl}" class="btn btn-secondary rounded-0 mr-3 d-inline-block font-weight-light compare">
+    <a data-bind="attr: {'href': compareProducts().listUrl}" class="action compare primary btn btn-secondary rounded-0 mr-3 d-inline-block font-weight-light">
      <span><?= $block->escapeHtml(__('Compare')) ?></span>
     </a>
    </div>
    
    <div class="secondary">
-    <a id="compare-clear-all" href="#" class="font-weight-light d-inline-block clear" data-post="<?=$block->escapeHtml($this->helper(Magento\Catalog\Helper\Product\Compare::class)->getPostDataClearList()) ?>">
+    <a id="compare-clear-all" href="#" class="action clear font-weight-light d-inline-block" data-post="<?=$block->escapeHtml($this->helper(Magento\Catalog\Helper\Product\Compare::class)->getPostDataClearList()) ?>">
      <span><?= $block->escapeHtml(__('Clear All')) ?></span>
     </a>
    </div>

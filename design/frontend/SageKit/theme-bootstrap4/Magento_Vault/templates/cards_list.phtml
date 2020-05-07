@@ -9,14 +9,17 @@ $tokens = $block->getPaymentTokens();
 ?>
 
 <?php if (count($tokens) !== 0) : ?>
-<div class="table-responsive table-wrapper my-credit-cards">
- <table class="table-bordered data table table-credit-cards" id="my-orders-table">
+<div class="table-wrapper my-credit-cards table-responsive">
+ <table class="data table table-credit-cards table-bordered" id="my-orders-table">
+
+  <caption class="table-caption text-hide"><?= $block->escapeHtml(__('Stored Payment Methods')) ?></caption>
+
   <thead>
    <tr>
-    <th scope="col" class="font-weight-normal card-number"><?= $block->escapeHtml(__('Card Number')) ?></th>
-    <th scope="col" class="font-weight-normal expire"><?= $block->escapeHtml(__('Expiration Date')) ?></th>
-    <th scope="col" class="font-weight-normal card-type"><?= $block->escapeHtml(__('Type')) ?></th>
-    <th scope="col" class="font-weight-normal actions">&nbsp;</th>
+    <th scope="col" class="card-number font-weight-normal"><?= $block->escapeHtml(__('Card Number')) ?></th>
+    <th scope="col" class="expire font-weight-normal"><?= $block->escapeHtml(__('Expiration Date')) ?></th>
+    <th scope="col" class="card-type font-weight-normal"><?= $block->escapeHtml(__('Type')) ?></th>
+    <th scope="col" class="actions font-weight-normal">&nbsp;</th>
    </tr>
   </thead>
   <tbody>
@@ -30,7 +33,7 @@ $tokens = $block->getPaymentTokens();
 </div>
 
 <?php elseif (!$block->isExistsCustomerTokens()) : ?>
-<div class="alert alert-warning font-weight-light rounded-0 mb-3 message info empty" role="alert">
+<div class="message info empty alert alert-warning font-weight-light rounded-0 mb-3" role="alert">
  <span><?= $block->escapeHtml(__('You have no stored payment methods.')) ?></span>
 </div>
 <?php endif ?>
