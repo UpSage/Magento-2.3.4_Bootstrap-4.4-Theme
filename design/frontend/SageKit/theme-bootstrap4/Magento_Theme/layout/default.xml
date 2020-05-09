@@ -18,15 +18,15 @@
 
       <container name="header.panel.left" htmlClass="col" htmlTag="div" />
 
-      <container name="header.panel.right" htmlClass="col-auto px-0" htmlTag="div">
+      <container name="header.panel.right" htmlClass="col-auto px-0 d-none d-md-block" htmlTag="div">
        <referenceBlock name="top.links">
         <arguments>
-         <argument name="css_class" xsi:type="string">nav justify-content-end d-none d-md-flex</argument>
+         <argument name="css_class" xsi:type="string">nav justify-content-end d-md-flex</argument>
         </arguments>
        </referenceBlock>
       </container>
 
-      <container name="header.panel.last" htmlClass="col-auto px-0" htmlTag="div" />
+      <container name="header.panel.last" htmlClass="col-auto d-none d-md-block" htmlTag="div" />
 
      </referenceContainer>
     </referenceContainer>
