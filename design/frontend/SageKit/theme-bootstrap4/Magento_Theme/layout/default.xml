@@ -26,6 +26,8 @@
        </referenceBlock>
       </container>
 
+      <container name="header.panel.last" htmlClass="col-auto px-0" htmlTag="div" />
+
      </referenceContainer>
     </referenceContainer>
 
@@ -140,6 +142,7 @@
   <!-- Move to Header -->
   <move element="header" destination="header.panel.left" />
   <move element="top.links" destination="header.panel.right" />
+  <move element="store_language" destination="header.panel.last" />
 
   <!-- Move to Main -->
   <move element="breadcrumbs" destination="columns.top.row.first.col" />

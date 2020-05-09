@@ -1,0 +1,37 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Store\Block\Switcher $block */
+?>
+<?php if (count($block->getStores())>1) : ?>
+
+<?php $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '' ?>
+<div class="switcher language switcher-language d-none d-md-block" data-ui-id="language-switcher" id="switcher-language<?= $block->escapeHtmlAttr($id) ?>">
+ 
+ <span class="label switcher-label text-hide d-none"><?= $block->escapeHtml(__('Language asdsd')) ?></span>
+
+ <div class="actions dropdown options switcher-options">
+
+  <a class="view-<?= $block->escapeHtml($block->getCurrentStoreCode()) ?> btn btn-secondary dropdown-toggle font-weight-light bg-transparent border-0 rounded-0 py-2" href="#" role="button" id="switcher-language-trigger<?= $block->escapeHtmlAttr($id) ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <span><?= $block->escapeHtml($block->getStoreName()) ?></span>
+  </a>
+
+  <div class="dropdown-menu w-100 dropdown-menu-right" aria-labelledby="switcher-language-trigger<?= $block->escapeHtmlAttr($id) ?>">
+  
+   <?php foreach ($block->getStores() as $_lang) : ?>
+   <?php if ($_lang->getId() != $block->getCurrentStoreId()) : ?>
+   <a class="view-<?= $block->escapeHtml($_lang->getCode()) ?> switcher-option dropdown-item font-weight-light px-3" href="<?= $block->escapeUrl($block->getViewModel()->getTargetStoreRedirectUrl($_lang)) ?>">
+    <?= $block->escapeHtml($_lang->getName()) ?>
+   </a>
+   <?php endif; ?>
+   <?php endforeach; ?>
+
+  </div>
+
+ </div>
+
+</div>
+<?php endif; ?>
