@@ -8,11 +8,9 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
  <body>
 
-  <referenceContainer name="page.top">
+  <referenceContainer name="navbar.nav.desktop">
    <block class="SageKit\Bootstrap4CategoryMenu\Block\CategoryMenu" name="catalog.categories.topnav" template="SageKit_Bootstrap4CategoryMenu::html/category-menu.phtml" before="-"/>
   </referenceContainer>
-
-  <referenceBlock name="store.menu" remove="true" />
 
  </body>
 </page>

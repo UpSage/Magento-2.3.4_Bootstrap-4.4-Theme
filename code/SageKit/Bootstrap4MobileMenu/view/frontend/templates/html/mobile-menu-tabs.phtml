@@ -1,0 +1,32 @@
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+ <li class="nav-item">
+  <a class="nav-link active text-dark font-weight-light rounded-0 bg-transparent" id="mobile-menu" data-toggle="tab" href="#mobile-menu-tab" role="tab" aria-controls="mobile-menu" aria-selected="true"><?= __('Menu') ?></a>
+ </li>
+ <li class="nav-item">
+  <a class="nav-link text-dark font-weight-light rounded-0 bg-transparent" id="mobile-account" data-toggle="tab" href="#mobile-account-tab" role="tab" aria-controls="mobile-account" aria-selected="false"><?= __('Account') ?></a>
+ </li>
+ <li class="nav-item">
+  <a class="nav-link text-dark font-weight-light rounded-0 bg-transparent" id="mobile-settings" data-toggle="tab" href="#mobile-settings-tab" role="tab" aria-controls="mobile-settings" aria-selected="false"><?= __('Settings') ?></a>
+ </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+ <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel" aria-labelledby="mobile-menu">
+  <div class="p-2">
+  <?= $this->getLayout()->createBlock('SageKit\Bootstrap4CategoryMenu\Block\CategoryMenu')->setTemplate('SageKit_Bootstrap4CategoryMenu::html/category-menu.phtml')->toHtml(); ?>
+  </div>
+ </div>
+ <div class="tab-pane fade" id="mobile-account-tab" role="tabpanel" aria-labelledby="mobile-account">
+  <div class="p-2">
+   <ul class="navbar-nav">
+    <?= $this->getLayout()->createBlock('Magento\Customer\Block\Account\AuthorizationLink')->setTemplate('Magento_Customer::account/link/authorization.phtml')->toHtml(); ?>
+   </ul>
+  </div>
+ </div>
+ <div class="tab-pane fade" id="mobile-settings-tab" role="tabpanel" aria-labelledby="mobile-settings">
+  <div class="p-2">
+  <?= $this->getLayout()->createBlock('Magento\Store\Block\Switcher')->setTemplate('Magento_Store::switch/languages.phtml')->toHtml(); ?>
+  </div>
+ </div>
+</div>
