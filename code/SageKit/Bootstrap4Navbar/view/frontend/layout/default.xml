@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+ <body>
+
+  <referenceContainer name="navbar.tier.primary.container">
+   <block class="Magento\Framework\View\Element\Template" name="navbar.toggler" template="SageKit_Bootstrap4Navbar::html/nav-toggler.phtml" after="-" />
+  </referenceContainer>
+
+  <referenceContainer name="navbar.tier.secondary.container">
+
+   <container name="navbar.collapse.new" htmlTag="div" htmlClass="collapse navbar-collapse row" htmlId="navbarMain"/>
+
+   <!-- Remove to old container -->
+   <referenceContainer name="navbar.collapse" remove="true" />
+
+  </referenceContainer>
+
+  <!-- Move to new container -->
+  <move element="navbar.collapse.col.left" destination="navbar.collapse.new" />
+  <move element="navbar.collapse.col.right" destination="navbar.collapse.new" after="navbar.collapse.col.left" />
+
+ </body>
+</page>

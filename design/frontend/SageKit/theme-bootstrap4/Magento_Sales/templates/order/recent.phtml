@@ -15,8 +15,7 @@
  $count = count($_orders);
 ?>
 
-
- <h2 role="heading" aria-level="2" class="block-title order font-weight-light h5 mb-4 pb-3 border-bottom">
+ <h2 role="heading" aria-level="2" class="block-title order font-weight-light h4 mb-4 pb-3 border-bottom">
   <span><?= $block->escapeHtml(__('Recent Orders')) ?></span>
   <?php if ($count > 0) : ?>
   <a class="action view font-weight-light h6 ml-2" href="<?= $block->escapeUrl($block->getUrl('sales/order/history')) ?>">

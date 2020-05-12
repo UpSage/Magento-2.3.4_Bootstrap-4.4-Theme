@@ -49,15 +49,13 @@
    <referenceContainer name="page.top" htmlTag="nav" htmlClass="navbar navbar-expand-md navbar-light bg-light d-block mb-4 p-0">
    
     <container name="navbar.tier.primary" htmlTag="div" htmlClass="bg-white py-2 py-md-3" before="-">
-     <container name="navbar.tier.primary.container" htmlTag="div" htmlClass="container">
-      <block class="Magento\Framework\View\Element\Template" name="navbar.toggler" template="Magento_Theme::html/header/nav-toggler.phtml" />
-     </container>
+     <container name="navbar.tier.primary.container" htmlTag="div" htmlClass="container" />
     </container>
     
     <container name="navbar.tier.secondary" htmlTag="div" htmlClass="bg-light py-md-2 py-xl-3 border-bottom">
      <container name="navbar.tier.secondary.container" htmlTag="div" htmlClass="container">
      
-      <container name="navbar.collapse" htmlTag="div" htmlClass="collapse navbar-collapse row" htmlId="navbarMain">
+      <container name="navbar.collapse" htmlTag="div" htmlClass="collapse navbar-collapse row">
        
        <container name="navbar.collapse.col.left" htmlTag="div" htmlClass="col-lg-8 pt-2 py-lg-0">
         <container name="navbar.nav.desktop" htmlTag="div" htmlClass="d-none d-md-block" />
