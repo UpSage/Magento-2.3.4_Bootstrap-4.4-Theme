@@ -177,8 +177,6 @@
 
   <!-- Move to Navigation -->
   <move element="logo" destination="navbar.tier.primary.container" before="-" />
-  <move element="minicart" destination="navbar.tier.primary.container" after="logo" />
-  <move element="top.search" destination="navbar.collapse.col.right" before="-" />
 
   <!-- Move to Main -->
   <move element="breadcrumbs" destination="columns.top.row.first.col" />
