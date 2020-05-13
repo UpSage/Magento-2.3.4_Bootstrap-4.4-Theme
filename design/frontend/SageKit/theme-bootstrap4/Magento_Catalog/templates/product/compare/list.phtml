@@ -70,7 +70,7 @@
       <?= $block->getImage($item, 'product_comparison_list')->toHtml() ?>
      </a>
 
-     <h2 class="product-name product-item-name font-weight-bold h6 mb-2">
+     <h2 class="product-name product-item-name font-weight-normal h6 mb-2">
       <a href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= /* @noEscape */ $block->stripTags($item->getName(), null, true) ?>" class="product-item-link text-dark">
        <?= /* @noEscape */ $helper->productAttribute($item, $item->getName(), 'name') ?>
       </a>

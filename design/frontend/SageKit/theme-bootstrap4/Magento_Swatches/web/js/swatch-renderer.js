@@ -555,7 +555,7 @@ define([
 
         if (type === 0) {
           // Text
-          html += '<div class="d-inline-block mr-1 my-1 px-2 py-1 bg-light border ' + optionClass + ' text" ' + attr + '>' + (value ? value : label) +
+          html += '<div class="d-inline-block mr-1 my-1 px-2 py-1 bg-light border font-weight-light ' + optionClass + ' text" ' + attr + '>' + (value ? value : label) +
             '</div>';
         } else if (type === 1) {
           // Color
