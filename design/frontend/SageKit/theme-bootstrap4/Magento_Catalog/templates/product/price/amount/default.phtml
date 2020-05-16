@@ -7,15 +7,15 @@
 
 <?php /** @var $block \Magento\Framework\Pricing\Render\Amount */ ?>
 
-<span class="price-container <?= $block->escapeHtmlAttr($block->getAdjustmentCssClasses()) ?> d-block mb-3" <?= $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
+<div class="price-container <?= $block->escapeHtmlAttr($block->getAdjustmentCssClasses()) ?> d-block mb-3" <?= $block->getSchema() ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '' ?>>
 
  <?php if ($block->getDisplayLabel()) :?>
- <span class="price-label font-weight-light"><?= $block->escapeHtml($block->getDisplayLabel()) ?></span>
+ <div class="price-label font-weight-light mb-1"><?= $block->escapeHtml($block->getDisplayLabel()) ?></div>
  <?php endif; ?>
  
- <span <?php if ($block->getPriceId()) :?> id="<?= $block->escapeHtmlAttr($block->getPriceId()) ?>"<?php endif;?> <?= ($block->getPriceDisplayLabel()) ? 'data-label="' . $block->escapeHtmlAttr($block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes()) . '"' : '' ?> data-price-amount="<?= $block->escapeHtmlAttr($block->getDisplayValue()) ?>" data-price-type="<?= $block->escapeHtmlAttr($block->getPriceType()) ?>" class="price-wrapper font-weight-bold <?= $block->escapeHtmlAttr($block->getPriceWrapperCss()) ?>">
+ <div <?php if ($block->getPriceId()) :?> id="<?= $block->escapeHtmlAttr($block->getPriceId()) ?>"<?php endif;?> <?= ($block->getPriceDisplayLabel()) ? 'data-label="' . $block->escapeHtmlAttr($block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes()) . '"' : '' ?> data-price-amount="<?= $block->escapeHtmlAttr($block->getDisplayValue()) ?>" data-price-type="<?= $block->escapeHtmlAttr($block->getPriceType()) ?>" class="price-wrapper font-weight-bold <?= $block->escapeHtmlAttr($block->getPriceWrapperCss()) ?>">
   <?= $block->escapeHtml($block->formatCurrency($block->getDisplayValue(), (bool)$block->getIncludeContainer()), ['span']) ?>
- </span>
+ </div>
  
  <?php if ($block->hasAdjustmentsHtml()) :?>
   <?= $block->getAdjustmentsHtml() ?>
@@ -26,4 +26,4 @@
  <meta itemprop="priceCurrency" content="<?= $block->escapeHtmlAttr($block->getDisplayCurrencyCode()) ?>" />
  <?php endif; ?>
 
-</span>
+</div>

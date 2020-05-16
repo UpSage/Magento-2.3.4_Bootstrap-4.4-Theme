@@ -11,8 +11,19 @@
   <referenceContainer name="content">
 
    <container name="product.row.top" htmlTag="div" htmlClass="row">
-    <referenceContainer name="product.info.main" htmlTag="div" htmlClass="col-md-6 order-1 mb-4 product-info-main" />
-    <referenceContainer name="product.info.media" htmlTag="div" htmlClass="col-md-6 order-0 mb-4 product-info-media" />
+    <referenceContainer name="product.info.main" htmlTag="div" htmlClass="col-md-6 order-1 mb-4 product-info-main">
+     <container name="product.info.review.container" htmlTag="div" htmlClass="product-info-review-container h5" before="-" />
+     <referenceContainer name="product.info.price" htmlTag="div" htmlClass="row product-info-price">
+      <container name="product.price.final.container" htmlTag="div" htmlClass="col product-price-final-container" before="-" />
+      <referenceContainer name="product.info.stock.sku" htmlTag="div" htmlClass="col text-right product-info-stock-sku" />
+     </referenceContainer>
+    </referenceContainer>
+
+    <referenceContainer name="product.info.media" htmlTag="div" htmlClass="col-md-6 order-0 mb-4 product-info-media">
+     <referenceContainer name="skip_gallery_before.wrapper" display="false"/>
+     <referenceContainer name="skip_gallery_after.wrapper" display="false"/>
+    </referenceContainer>
+
    </container>
 
    <container name="product.row.bottom" htmlTag="div" htmlClass="row">
@@ -25,6 +36,9 @@
   <move element="product.info.main" destination="product.row.top" before="-" />
   <move element="product.info.media" destination="product.row.top" after="product.info.main" />
   <move element="product.info.details" destination="product.col.bottom" before="-" />
+
+  <move element="product.info.review" destination="product.info.review.container" before="-" />
+  <move element="product.price.final" destination="product.price.final.container" before="-" />
   
  </body>
 </page>
